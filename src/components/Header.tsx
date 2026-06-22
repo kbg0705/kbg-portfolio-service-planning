@@ -1,38 +1,7 @@
 import { Download } from 'lucide-react';
+import { NavLink } from 'react-router-dom';
+import { profile } from '../data/profile';
 
-type HeaderProps = {
-  activeSection: string;
-};
-
-const navItems = [
-  { id: 'work', label: 'WORK', href: '#work' },
-  { id: 'process', label: 'PROCESS', href: '#process' },
-  { id: 'about', label: 'ABOUT', href: '#about' },
-];
-
-export function Header({ activeSection }: HeaderProps) {
-  return (
-    <header className="site-header" data-scrolled={activeSection !== 'top'}>
-      <a className="brand-lockup" href="#top" aria-label="메인 상단으로 이동">
-        <strong>KB.</strong>
-        <span>KIM BUGYEONG / PRODUCT MANAGER</span>
-      </a>
-
-      <nav className="global-nav" aria-label="주요 섹션 이동">
-        {navItems.map((item) => (
-          <a
-            key={item.id}
-            className={activeSection === item.id ? 'is-active' : undefined}
-            href={item.href}
-          >
-            {item.label}
-          </a>
-        ))}
-        <a className="nav-download" href="/resume/김부경_이력서.pdf" download>
-          RESUME
-          <Download size={14} aria-hidden="true" />
-        </a>
-      </nav>
-    </header>
-  );
+export function Header() {
+  return <header className="site-header"><NavLink className="brand-lockup" to="/"><strong>KB.</strong><span>KIM BUGYEONG / PRODUCT MANAGER</span></NavLink><nav className="global-nav" aria-label="주요 페이지"><NavLink to="/" end>HOME</NavLink><NavLink to="/work">WORK</NavLink><NavLink to="/about">ABOUT</NavLink><a className="nav-download" href={profile.resume} download>RESUME <Download size={14} /></a></nav></header>;
 }
