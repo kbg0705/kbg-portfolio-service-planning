@@ -1,4 +1,16 @@
 node_modules
+.pnpm-store
+dist
+work
+outputs
+.agents
+.codex
+.git
+.env
+.env.local
+.DS_Store
+*.local
+node_modules
 dist
 work
 outputs
