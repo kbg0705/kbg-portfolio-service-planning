@@ -68,6 +68,14 @@ export type ProjectDetail = {
     outcome: string;
   };
   evidence: Evidence[];
+  feedbackBacklog?: {
+    title: string;
+    subtitle: string;
+    body: string;
+    flow: string[];
+    image: ProjectImage;
+    secondaryCaption?: string;
+  };
   keyQuestion: string;
   decisions: ProductDecision[];
   artifacts: ProjectImage[];
