@@ -15,8 +15,9 @@ GitHub Pages 직접 URL 접근은 `public/404.html`이 `?redirect=` 방식으로
 
 - `src/data/projects.ts`: Featured, Compact, Archive 프로젝트 목록
 - `src/data/projectDetails.ts`: 상세페이지 공통 템플릿에 들어가는 프로젝트별 근거, 결정, 산출물, 성과, 회고
+- `src/data/career.ts`: Home의 Career Summary에 표시되는 회사, 역할, 연결 프로젝트
 - `src/data/projectCategories.ts`: `/work` 필터
-- `src/data/profile.ts`: About, Footer, 연락처, 이력서 링크
+- `src/data/profile.ts`: About, Footer, 연락처, 학력, 자격, 활동, 업무 도구
 - `docs/asset-manifest.md`: 필요한 이미지와 보안 처리 상태
 
 ## 로컬 실행 및 검증
