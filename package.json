@@ -7,8 +7,9 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "lint": "tsc -b",
-    "build": "tsc -b && vite build",
-    "build:github": "tsc -b && vite build --base=/miricanvas-junior-pm-portfolio/",
+    "typecheck": "tsc -b",
+    "build": "tsc -b && vite build --configLoader runner",
+    "build:github": "tsc -b && vite build --configLoader runner --base=/miricanvas-junior-pm-portfolio/",
     "preview": "vite preview --host 0.0.0.0",
     "deploy:check": "pnpm run build"
   },
