@@ -1,66 +1,22 @@
 import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import type { Project } from '../data/projects';
+import type { Project } from '../types/project';
+import { ImagePlaceholder } from './common/ImagePlaceholder';
 
-type ProjectCardProps = {
-  project: Project;
-};
-
-export function ProjectCard({ project }: ProjectCardProps) {
+export function ProjectCard({ project, compact = false }: { project: Project; compact?: boolean }) {
   return (
-    <article className={`project-card project-card--${project.variant}`} id={project.id}>
-      <div className="project-card__header">
-        <span>{project.number}</span>
-        <p>{project.service}</p>
-      </div>
-      <div className="project-card__body">
+    <article className={`project-card project-card--${project.tier}${compact ? ' is-compact' : ''}`}>
+      <div className="project-card__meta"><span>{String(project.order).padStart(2, '0')}</span><p>{project.service}</p></div>
+      {project.thumbnail && !compact ? <ImagePlaceholder image={project.thumbnail} /> : null}
+      <div className="project-card__content">
+        <p className="project-card__category">{project.category.join(' · ')}</p>
         <h3>{project.title}</h3>
-        <p className="project-tagline">{project.tagline}</p>
-        <div className="project-logic">
-          <ProjectFact label="Problem" value={project.problem} />
-          <ProjectFact label="Decision" value={project.decision} />
-          <div>
-            <span>Impact</span>
-            <ul>
-              {project.impact.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </div>
-        </div>
-        <div className="tag-row" aria-label={`${project.title} 키워드`}>
-          {project.tags.map((tag) => (
-            <span key={tag}>{tag}</span>
-          ))}
-        </div>
+        <p className="project-card__tagline">{project.tagline}</p>
+        {compact ? <p className="project-card__description">{project.description ?? project.problem}</p> : <div className="project-card__logic"><div><span>Problem</span><p>{project.problem}</p></div><div><span>Decision</span><p>{project.decision}</p></div></div>}
+        <div className="outcome-inline">{project.impact.slice(0, compact ? 2 : 3).map((item) => <span key={`${item.value}-${item.label}`} data-type={item.type}><strong>{item.value}</strong>{item.label}</span>)}</div>
+        <div className="tag-list">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
+        {project.detailPageEnabled ? <Link className="detail-link" to={`/projects/${project.slug}`}>Case Study <ArrowUpRight size={17} /></Link> : null}
       </div>
-      {project.imageSlots ? (
-        <div className="project-visuals" aria-label={`${project.title} 이미지 자리`}>
-          {project.imageSlots.map((slot) => (
-            <div className="visual-placeholder" key={slot} role="img" aria-label={`${slot} 이미지가 들어갈 영역`}>
-              <span>{slot}</span>
-            </div>
-          ))}
-        </div>
-      ) : null}
-      <Link className="detail-link" to={project.href} aria-label={`${project.title} 상세 페이지 준비 화면으로 이동`}>
-        상세보기
-        <ArrowUpRight size={18} aria-hidden="true" />
-      </Link>
     </article>
-  );
-}
-
-type ProjectFactProps = {
-  label: string;
-  value: string;
-};
-
-function ProjectFact({ label, value }: ProjectFactProps) {
-  return (
-    <div>
-      <span>{label}</span>
-      <p>{value}</p>
-    </div>
   );
 }
