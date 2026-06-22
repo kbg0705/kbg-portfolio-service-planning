@@ -1,4 +1,5 @@
 import { ArrowLeft, ArrowRight, List, LockKeyhole } from 'lucide-react';
+import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import type { Project, ProjectDetail, ProjectImage } from '../../types/project';
 import { ImagePlaceholder } from '../common/ImagePlaceholder';
@@ -27,6 +28,6 @@ export function ProjectDetailView({ project, detail, active, onOpen }: { project
   </>;
 }
 
-function Section({ id, eyebrow, title, wide, children }: { id: string; eyebrow: string; title: string; wide?: boolean; children: React.ReactNode }) { return <section id={id} className={`detail-section${wide ? ' detail-section--wide' : ''}`}><div className="section-heading"><p className="eyebrow">{eyebrow}</p><h2>{title}</h2></div>{children}</section>; }
+function Section({ id, eyebrow, title, wide, children }: { id: string; eyebrow: string; title: string; wide?: boolean; children: ReactNode }) { return <section id={id} className={`detail-section${wide ? ' detail-section--wide' : ''}`}><div className="section-heading"><p className="eyebrow">{eyebrow}</p><h2>{title}</h2></div>{children}</section>; }
 function Summary({ label, text }: { label: string; text: string }) { return <article><span>{label}</span><p>{text}</p></article>; }
 function Fact({ label, text }: { label: string; text: string }) { return <div><span>{label}</span><p>{text}</p></div>; }
