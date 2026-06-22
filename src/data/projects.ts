@@ -1,83 +1,26 @@
-export type ProjectId = 'npb' | 'magic-ecole' | 'tax-canvas' | 'print-studio';
+import type { Project } from '../types/project';
+import { featuredProjectsA } from './featuredProjectsA';
+import { featuredProjectsB } from './featuredProjectsB';
+import { compactProjects } from './compactProjects';
 
-export type Project = {
-  id: ProjectId;
-  number: string;
-  service: string;
-  title: string;
-  tagline: string;
-  problem: string;
-  decision: string;
-  impact: string[];
-  tags: string[];
-  href: string;
-  variant: 'featured' | 'standard' | 'wide';
-  imageSlots?: string[];
-};
-
-export const projects: Project[] = [
+export const archiveProjects: Project[] = [
   {
-    id: 'npb',
-    number: '01',
-    service: 'NPB',
-    title: '인쇄 이커머스 제품 개선',
-    tagline: '흩어진 운영 이슈를 제품 개선 체계로 전환하다.',
-    problem:
-      '회원·주문·배송·CS 기능이 개별적으로 확장되면서 상태와 운영 기준이 불명확했고, 반복적인 수작업과 커뮤니케이션 비용이 발생했습니다.',
-    decision:
-      'VOC와 운영 이슈를 FD와 RP 개선 백로그로 구조화하고, 영향도·긴급도·선행 관계를 기준으로 우선순위를 관리했습니다.',
-    impact: ['메인페이지 평균 참여시간 1.7배 증가', '백오피스 운영 처리시간 30% 단축'],
-    tags: ['Product Strategy', 'GA4', 'FO/BO', 'Policy', 'QA'],
-    href: '/projects/npb',
-    variant: 'featured',
-    imageSlots: ['문제 및 백로그', '제품 화면', '지표 또는 결과'],
+    slug: 'recommendation', order: 11, tier: 'archive', service: 'Recommendation System', category: ['AI & Search', 'Academic'],
+    title: '콘텐츠 추천 시스템', tagline: '추천 기준과 콜드스타트 문제를 코드로 학습했습니다.', period: 'Undergraduate Project',
+    role: '데이터 분석 · 구현', contribution: '추천 로직 구현', status: '학업 프로젝트', tools: ['Python'], tags: ['Python', 'Recommendation', 'Data'],
+    problem: '제한된 정보에서 추천 기준을 비교할 필요가 있었습니다.', decision: '사용자 특성과 콘텐츠 속성을 활용한 영화·웹툰 추천 로직을 구현했습니다.',
+    impact: [{ value: 'Model', label: '추천 로직 구현', description: '학업 프로젝트', type: 'delivered' }], detailPageEnabled: false,
   },
   {
-    id: 'magic-ecole',
-    number: '02',
-    service: 'Magic Ecole',
-    title: '교육 SaaS LMS 리뉴얼',
-    tagline: '반복 개발이 필요했던 권한과 콘텐츠 구조를 확장 가능한 정책으로 재설계하다.',
-    problem:
-      '고정된 권한 구조와 낮은 콘텐츠 재사용성으로 인해 새로운 운영 요구가 생길 때마다 개발 의존도가 높았습니다.',
-    decision:
-      '전역 권한과 강의 내부 권한을 분리하고, 사용자 정의 역할과 콘텐츠 라이브러리 구조를 설계했습니다.',
-    impact: ['14개 Sprint 운영', '기획팀 업무 수행률 90%'],
-    tags: ['SaaS', 'LMS', 'Permission', 'Scrum', 'Figma'],
-    href: '/projects/magic-ecole',
-    variant: 'standard',
-  },
-  {
-    id: 'tax-canvas',
-    number: '03',
-    service: 'Tax Canvas',
-    title: '생성형 AI 세무 검색서비스',
-    tagline: 'AI가 답을 생성하는 시간을 신뢰할 수 있는 탐색 경험으로 바꾸다.',
-    problem:
-      'AI 분석 시간이 길고 결과의 신뢰성을 즉시 판단하기 어려웠으며, 여러 쟁점과 결과를 비교하는 과정도 복잡했습니다.',
-    decision:
-      '부분 결과, 쟁점 이동, 재분석, 판례·예규 근거 확인이 이어지는 사용자 흐름을 설계했습니다.',
-    impact: ['RAG 기반 검색 및 근거 확인 UX 설계', '개발 착수 가능한 제품 요구사항 완성'],
-    tags: ['Generative AI', 'RAG', 'Search UX', 'Trust'],
-    href: '/projects/tax-canvas',
-    variant: 'standard',
-  },
-  {
-    id: 'print-studio',
-    number: '04',
-    service: 'PrintStudio',
-    title: '신규 인쇄 이커머스 구축',
-    tagline: '주문 파일 오류와 반복 운영 업무를 사용자 가이드와 자동화로 줄이다.',
-    problem:
-      '주문 파일 오류로 CS가 반복되고, 주문 데이터를 내부 시스템으로 옮기는 운영 업무가 수작업으로 이루어졌습니다.',
-    decision: '상품별 작업 파일 가이드와 주문·인트라넷 연동 구조를 설계했습니다.',
-    impact: ['파일 가이드 이용률 50% 이상', '운영 처리시간 단축'],
-    tags: ['E-commerce', 'Automation', 'UX Writing', 'Operations'],
-    href: '/projects/print-studio',
-    variant: 'wide',
+    slug: 'hci-vr', order: 12, tier: 'archive', service: 'HCI Research Lab', category: ['Research', 'Academic'],
+    title: 'VR 사용성 연구', tagline: '사용자 관찰과 정성·정량 조사를 연구 현장에서 경험했습니다.', period: 'Research Experience',
+    role: 'HCI 연구실 RA', contribution: '사용자 관찰 · 연구 지원 · 학술 활동', status: '연구 경험', tools: ['User Research', 'VR'], tags: ['HCI', 'VR', 'User Research'],
+    problem: 'VR 환경의 행동과 사용성 이슈를 기록할 필요가 있었습니다.', decision: '사용자 관찰과 정성·정량 조사 및 학술 활동을 지원했습니다.',
+    impact: [{ value: 'RA', label: 'VR 사용성 연구 지원', description: '공개 자료가 없어 텍스트 중심 제공', type: 'delivered' }], detailPageEnabled: false,
   },
 ];
 
-export function findProject(projectId: string | undefined) {
-  return projects.find((project) => project.id === projectId);
-}
+export const featuredProjects = [...featuredProjectsA, ...featuredProjectsB];
+export { compactProjects };
+export const projects = [...featuredProjects, ...compactProjects, ...archiveProjects];
+export const findProject = (slug?: string) => projects.find((project) => project.slug === slug);
