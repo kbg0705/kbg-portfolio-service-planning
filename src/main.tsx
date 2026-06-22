@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import PortfolioApp from './PortfolioApp';
 import './styles/global.css';
 import './styles/portfolio.css';
+import './styles/backlog.css';
 
 const redirectPath = new URLSearchParams(window.location.search).get('redirect');
 if (redirectPath) {
