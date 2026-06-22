@@ -18,7 +18,13 @@ export function ProjectCasePage() {
 
   const images = useMemo<ProjectImage[]>(() => {
     if (!project || !detail) return [];
-    return [project.thumbnail, ...detail.decisions.map((item) => item.image), ...detail.artifacts, ...detail.images].filter(Boolean) as ProjectImage[];
+    return [
+      project.thumbnail,
+      detail.feedbackBacklog?.image,
+      ...detail.decisions.map((item) => item.image),
+      ...detail.artifacts,
+      ...detail.images,
+    ].filter(Boolean) as ProjectImage[];
   }, [detail, project]);
 
   useEffect(() => {
