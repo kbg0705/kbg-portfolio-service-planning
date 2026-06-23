@@ -32,27 +32,6 @@ export function PortfolioHomePage() {
               </Link>
             </div>
           </div>
-          <div className="signal-panel">
-            <p className="eyebrow">SIGNAL → STRUCTURE → PRODUCT</p>
-            <h2>문제의 신호를 제품 결정으로 연결합니다.</h2>
-            <div className="signal-steps">
-              <div>
-                <span>01</span>
-                <strong>Signal</strong>
-                <p>데이터 · VOC · 인터뷰</p>
-              </div>
-              <div>
-                <span>02</span>
-                <strong>Structure</strong>
-                <p>정책 · 상태 · 우선순위</p>
-              </div>
-              <div>
-                <span>03</span>
-                <strong>Product</strong>
-                <p>화면 · 협업 · 검증</p>
-              </div>
-            </div>
-          </div>
         </section>
 
         <section className="home-section">
