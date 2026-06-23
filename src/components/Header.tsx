@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-const homeSections = [
+const sections = [
   { id: 'home', label: 'HOME' },
   { id: 'work', label: 'WORK' },
   { id: 'about', label: 'ABOUT' },
@@ -24,7 +24,7 @@ export function Header() {
   useEffect(() => {
     if (!isHome) return undefined;
 
-    const elements = homeSections
+    const elements = sections
       .map((section) => document.getElementById(section.id))
       .filter((element): element is HTMLElement => Boolean(element));
 
@@ -36,14 +36,17 @@ export function Header() {
 
         if (visible?.target.id) setActiveSection(visible.target.id);
       },
-      { rootMargin: '-34% 0px -52% 0px', threshold: [0.08, 0.2, 0.45] },
+      { rootMargin: '-32% 0px -54% 0px', threshold: [0.08, 0.24, 0.5] },
     );
 
     elements.forEach((element) => observer.observe(element));
     return () => observer.disconnect();
   }, [isHome]);
 
-  const headerClassName = `site-header${isScrolled ? ' is-scrolled' : ''}`;
+  const navLink = (id: string, label: string) => {
+    const className = isHome && activeSection === id ? 'active' : undefined;
+    return isHome ? <a className={className} href={`#${id}`} key={id}>{label}</a> : <Link to={{ pathname: '/', hash: `#${id}` }} key={id}>{label}</Link>;
+  };
 
-  return <header className={headerClassName}><NavLink className="brand-lockup" to="/"><strong>KB.</strong><span>KIM BUGYEONG / PRODUCT MANAGER</span></NavLink><nav className="global-nav" aria-label="주요 페이지">{isHome ? homeSections.map((section) => <a className={activeSection === section.id ? 'active' : undefined} href={`#${section.id}`} key={section.id}>{section.label}</a>) : <><NavLink to="/" end>HOME</NavLink><NavLink to="/work">WORK</NavLink><NavLink to="/about">ABOUT</NavLink><NavLink to="/contact">CONTACT</NavLink></>}</nav></header>;
+  return <header className={`site-header${isScrolled ? ' is-scrolled' : ''}`}><Link className="brand-lockup" to={{ pathname: '/', hash: '#home' }}><strong>KB.</strong><span>KIM BUGYEONG / PRODUCT MANAGER</span></Link><nav className="global-nav" aria-label="주요 페이지">{sections.map((section) => navLink(section.id, section.label))}</nav></header>;
 }
