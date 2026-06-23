@@ -1,5 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { AboutPage } from './pages/AboutPage';
+import { ContactPage } from './pages/ContactPage';
 import { PortfolioHomePage } from './pages/PortfolioHomePage';
 import { ProjectCasePage } from './pages/ProjectCasePage';
 import { WorkPage } from './pages/WorkPage';
@@ -17,6 +18,7 @@ export default function PortfolioApp() {
         <Route path="/" element={<PortfolioHomePage />} />
         <Route path="/work" element={<WorkPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/contact" element={<ContactPage />} />
         <Route path="/projects/:slug" element={<ProjectCasePage />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
