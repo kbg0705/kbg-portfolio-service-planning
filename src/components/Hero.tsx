@@ -1,4 +1,5 @@
 import { ArrowDownRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SignalDiagram } from './SignalDiagram';
 
 export function Hero() {
@@ -19,9 +20,9 @@ export function Hero() {
             프로젝트 살펴보기
             <ArrowDownRight size={18} aria-hidden="true" />
           </a>
-          <a className="secondary-action" href="#career-summary">
+          <Link className="secondary-action" to="/about#career-summary">
             경력 한눈에 보기
-          </a>
+          </Link>
         </div>
         <p className="hero-keywords">EdTech SaaS · AI Search · E-commerce</p>
       </div>
