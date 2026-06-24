@@ -36,12 +36,12 @@ export function PortfolioHomePage() {
 
         <section className="home-section">
           <SectionTitle
-            eyebrow="Featured Case Studies"
+            eyebrow="Works"
             title="대표 작업 3가지를 먼저 보여드립니다."
           />
           <div className="compact-grid home-featured-grid">
             {representativeProjects.map((project) => (
-              <ProjectCard compact key={project.slug} project={project} />
+              <ProjectCard compact uniform key={project.slug} project={project} />
             ))}
           </div>
         </section>

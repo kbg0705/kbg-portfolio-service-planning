@@ -162,19 +162,22 @@ button.image-placeholder.has-image{
 .work-grid .project-card h3{font-size:25px}
 .work-grid .project-card__tagline{margin:0;font-size:16px}
 .work-grid .project-card__description{display:-webkit-box;overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:3}
-.work-grid .image-placeholder.has-image{
+.work-grid .image-placeholder.has-image,
+.home-featured-grid .image-placeholder.has-image{
   aspect-ratio:16 / 10;
   min-height:0;
   border:1px solid var(--p-line);
   background:var(--p-surface);
 }
-.work-grid .image-placeholder.has-image img{
+.work-grid .image-placeholder.has-image img,
+.home-featured-grid .image-placeholder.has-image img{
   display:block;
   width:100%;
   height:100%;
   object-fit:cover;
 }
-.work-grid .image-placeholder.has-image em{display:none}
+.work-grid .image-placeholder.has-image em,
+.home-featured-grid .image-placeholder.has-image em{display:none}
 .work-grid .detail-link{margin-top:18px}
 
 @media (min-width:1024px) and (max-width:1180px){
