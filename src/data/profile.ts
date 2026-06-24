@@ -1,7 +1,7 @@
 export const profile = {
   name: '김부경',
   role: 'Product Manager',
-  email: 'kimbu0705@gmail.com',
+  email: 'kbg010705@naver.com',
   github: 'https://github.com/kbg0705',
   summary:
     '사용자 조사와 데이터에서 문제의 단서를 찾고, 복잡한 요구사항을 정책과 사용자 흐름으로 구조화합니다. 개발·디자인·운영 조직과 협업하며 문제 정의부터 출시와 검증까지 연결합니다.',
