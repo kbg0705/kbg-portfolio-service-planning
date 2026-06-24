@@ -186,6 +186,7 @@ const coverImages: Record<string, string> = {
   'printbank-npb': 'public/images/projects/printbank-npb/01-cover.png',
   'printbank-main': 'public/images/projects/printbank-main/01-cover.png',
   'magic-ecole': 'public/images/projects/magic-ecole/01-cover.png',
+  'visang-aidt': 'public/images/projects/visang-aidt/01-cover.png',
   'tax-canvas': 'public/images/projects/tax-canvas/01-cover.png',
   'print-studio': 'public/images/projects/print-studio/01-cover.png',
   'print-decision-support': 'public/images/projects/print-decision-support/01-cover.png',
