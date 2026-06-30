@@ -9,18 +9,18 @@ export const featuredProjects: Project[] = [
     service: 'New Printbank Project',
     category: ['Product', 'E-commerce'],
     title: 'New Printbank 제품 운영 체계 구축',
-    tagline: '흩어진 운영 이슈를 우선순위가 있는 제품 개선 체계로 전환했습니다.',
+    tagline: '사용자 화면과 운영 화면 사이의 상태·정책 공백을 제품 개선 체계로 전환했습니다.',
     period: '2026.02–2026.06',
     role: '서비스 기획 · Product Manager',
     contribution: '문제 구조화 · 정책 설계 · 화면정의 · 개발 협의 · QA',
     status: '기획·개발·QA 병행',
     tools: ['Figma', 'Jira', 'Google Sheets', 'SQL/DB 구조 협의'],
-    tags: ['FO/BO', 'Product Operations', 'Policy', 'Backlog'],
-    problem: '회원·주문·배송·CS 기능의 상태 체계와 운영 기준이 불명확해 운영자가 수작업으로 공백을 보완했습니다.',
-    decision: '운영 피드백을 FD 문제 정의와 RP 개선 과제로 구조화하고 상태·조건·예외·우선순위를 정책으로 만들었습니다.',
+    tags: ['FO/BO', 'User Status', 'Operation Policy', 'Backlog'],
+    problem: '회원·주문·배송·CS 기능의 사용자 상태와 운영 처리 기준이 불명확해 운영자가 수작업으로 공백을 보완했습니다.',
+    decision: '운영 피드백을 FD 문제 정의와 RP 개선 과제로 구조화하고 상태·조건·예외·권한·우선순위를 정책으로 만들었습니다.',
     impact: [
-      { value: 'FO·BO', label: '개선 과제 개발·QA 연결', description: '회원·주문·배송·CS 관련 과제', type: 'delivered' },
-      { value: 'One System', label: '문제와 개발 상태 관리 기준 통합', description: '운영·기획·개발 공통 기준', type: 'delivered' },
+      { value: 'FO·BO', label: '개선 과제 개발·QA 연결', description: '회원·주문·배송·CS 상태와 운영 권한', type: 'delivered' },
+      { value: 'One System', label: '문제와 개발 상태 관리 기준 통합', description: '운영·기획·개발 공통 정책', type: 'delivered' },
     ],
     detailPageEnabled: true,
     thumbnail: { ...image('cover', '비식별화된 제품 개선 시스템', '권장 비율 16:10 · FD·RP 백로그와 FO·BO 정책 연결을 보여주는 화면'), isConfidential: true },
@@ -32,15 +32,15 @@ export const featuredProjects: Project[] = [
     service: 'Printbank',
     category: ['Product', 'E-commerce'],
     title: 'Printbank 메인페이지 리뉴얼',
-    tagline: '주문조회 중심의 방문 흐름을 상품 탐색과 상담으로 이어지는 메인 경험으로 바꿨습니다.',
+    tagline: '방문자의 탐색 상태를 읽고 상품·상담·주문 흐름이 이어지는 메인 경험으로 바꿨습니다.',
     period: '2025.07–2025.09',
     role: '서비스 기획',
     contribution: 'GA4 분석 · 문제 정의 · 정보 우선순위 · 화면 기획 · 디자이너 협업',
     status: '출시 및 지표 검증 완료',
     tools: ['GA4', 'Figma', 'Google Sheets'],
-    tags: ['GA4', 'Homepage', 'E-commerce', 'UX Improvement'],
-    problem: '주문조회 페이지에 방문이 집중되고 메인 배너와 신상품 콘텐츠의 탐색 성과가 낮았습니다.',
-    decision: '메인 배너의 주목도를 높이고 팝업의 방해를 줄이며 상담 진입점을 고정해 메인페이지의 역할을 재정의했습니다.',
+    tags: ['GA4', 'User Journey', 'Content Priority', 'UX Improvement'],
+    problem: '사용자가 주문조회 상태에 머무르고 메인 배너와 신상품 콘텐츠의 탐색 성과가 낮았습니다.',
+    decision: '방문 목적별 사용자 상태를 나누고 배너, 팝업, 상담 진입점의 정보 우선순위를 재정의했습니다.',
     impact: [
       { value: '1.7×', label: '평균 참여시간 증가', description: '1분 14초에서 2분 8초로 증가', type: 'measured' },
       { value: '1위', label: '전체 접속 페이지 순위', description: '메인페이지가 주문조회 페이지를 넘어 1위 달성', type: 'measured' },
@@ -56,15 +56,15 @@ export const featuredProjects: Project[] = [
     service: 'Magic Ecole',
     category: ['Product', 'SaaS'],
     title: '교육 SaaS LMS 리뉴얼',
-    tagline: '반복 개발이 필요했던 권한과 콘텐츠 구조를 확장 가능한 제품 정책으로 재설계했습니다.',
+    tagline: '역할·권한과 콘텐츠 재사용 구조를 확장 가능한 LMS 운영 정책으로 재설계했습니다.',
     period: '2023.07–2024.02',
     role: '서비스 기획 · PO',
     contribution: '사용자 문제 정의 · 권한 정책 · 콘텐츠 구조 · 화면설계 · Scrum 운영',
     status: '기획 완료 · 단계적 개발',
     tools: ['Figma', 'Jira', 'Confluence', 'Google Docs'],
-    tags: ['LMS', 'Back Office', 'Permission', 'Scrum'],
-    problem: '고정된 권한 체계와 낮은 콘텐츠 재사용성 때문에 새로운 운영 요구마다 추가 개발이 필요했습니다.',
-    decision: '전역 권한과 강의 내부 권한을 분리하고 Custom Role과 콘텐츠 라이브러리를 설계했습니다.',
+    tags: ['LMS', 'Role & Permission', 'Content Structure', 'Back Office'],
+    problem: '고정된 권한 체계와 낮은 콘텐츠 재사용성 때문에 새로운 역할, 강의, 운영 요구마다 추가 개발이 필요했습니다.',
+    decision: '전역 권한과 강의 내부 권한을 분리하고 Custom Role, 콘텐츠 라이브러리, 운영자 설정 구조를 설계했습니다.',
     impact: [
       { value: '14', label: 'Sprint 운영', description: 'Jira 기반 개발 협업', type: 'delivered' },
       { value: '90%', label: '기획팀 업무 수행률', description: '준비 상태와 착수 기준 개선', type: 'measured' },
@@ -190,6 +190,17 @@ const coverImages: Record<string, string> = {
   'my-ai-service-business': 'public/images/projects/MYAI/01-cover.png',
   'picar-ar-sns': 'public/images/projects/PICAR/01-cover.png',
 };
+
+const featuredOrder = ['magic-ecole', 'printbank-npb', 'printbank-main'];
+
+featuredProjects.sort((a, b) => {
+  const left = featuredOrder.indexOf(a.slug);
+  const right = featuredOrder.indexOf(b.slug);
+  if (left === -1 && right === -1) return a.order - b.order;
+  if (left === -1) return 1;
+  if (right === -1) return -1;
+  return left - right;
+});
 
 const allProjects = [...featuredProjects, ...compactProjects];
 

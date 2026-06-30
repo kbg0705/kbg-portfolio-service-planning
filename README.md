@@ -1,6 +1,6 @@
-# 김부경 Product Manager Portfolio
+# 김부경 Product Manager Portfolio for Weverse Company
 
-미리캔버스 Junior Product Manager 지원을 위한 PC 전용 포트폴리오입니다. React, TypeScript, Vite 기반이며 GitHub Pages 배포를 기준으로 구성했습니다.
+위버스컴퍼니 서비스 기획 직무 지원을 위한 PC 전용 포트폴리오입니다. React, TypeScript, Vite 기반이며 GitHub Pages 배포를 기준으로 구성했습니다.
 
 ## Routes
 
@@ -13,7 +13,7 @@ GitHub Pages 직접 URL 접근은 `public/404.html`이 `?redirect=` 방식으로
 
 ## 콘텐츠 구조
 
-- `src/data/projects.ts`: Featured, Compact, Archive 프로젝트 목록
+- `src/data/projects.ts`: Featured, Compact 프로젝트 목록과 위버스 지원용 대표 프로젝트 순서
 - `src/data/projectDetails.ts`: 상세페이지 공통 템플릿에 들어가는 프로젝트별 근거, 결정, 산출물, 성과, 회고
 - `src/data/career.ts`: Home의 Career Summary에 표시되는 회사, 역할, 연결 프로젝트
 - `src/data/projectCategories.ts`: `/work` 필터
@@ -38,5 +38,5 @@ pnpm run build
 ## 배포 주소
 
 ```text
-https://kbg0705.github.io/miricanvas-junior-pm-portfolio/
+https://kbg0705.github.io/kbg-portfolio-weverse/
 ```

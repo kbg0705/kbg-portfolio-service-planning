@@ -7,8 +7,8 @@ import { ProjectCasePage } from './pages/ProjectCasePage';
 import { WorkPage } from './pages/WorkPage';
 
 function getBasename() {
-  return window.location.pathname.startsWith('/miricanvas-junior-pm-portfolio')
-    ? '/miricanvas-junior-pm-portfolio'
+  return window.location.pathname.startsWith('/kbg-portfolio-weverse')
+    ? '/kbg-portfolio-weverse'
     : '/';
 }
 

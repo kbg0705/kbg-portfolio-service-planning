@@ -6,8 +6,8 @@ export function Footer({ email }: { email: string }) {
     <footer className="site-footer">
       <div className="footer-copy">
         <p className="eyebrow">Let’s work together</p>
-        <h2>사용자의 막힘을 제품의 기회로 바꾸겠습니다.</h2>
-        <p>주니어 프로덕트 매니저 김부경입니다. 함께 이야기할 기회를 기다리겠습니다.</p>
+        <h2>사용자 상태와 운영 정책을 함께 읽는 서비스 기획자가 되겠습니다.</h2>
+        <p>서비스 기획자 김부경입니다. 위버스컴퍼니에서 더 넓은 팬 경험을 만들고 싶습니다.</p>
       </div>
       <div className="footer-actions" aria-label="연락처 및 외부 링크">
         <Link className="footer-action footer-action--primary" to="/contact">
