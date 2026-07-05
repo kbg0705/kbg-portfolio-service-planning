@@ -5,8 +5,8 @@ import './styles/portfolio.css';
 
 const redirectPath = new URLSearchParams(window.location.search).get('redirect');
 if (redirectPath) {
-  const basePath = window.location.pathname.startsWith('/kbg-portfolio-weverse')
-    ? '/kbg-portfolio-weverse'
+  const basePath = window.location.pathname.startsWith('/kbg-portfolio-service-planning')
+    ? '/kbg-portfolio-service-planning'
     : '';
   window.history.replaceState(null, '', `${basePath}${redirectPath}`);
 }
