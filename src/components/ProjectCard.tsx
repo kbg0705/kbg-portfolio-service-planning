@@ -3,7 +3,24 @@ import { Link } from 'react-router-dom';
 import type { Project } from '../types/project';
 import { ImagePlaceholder } from './common/ImagePlaceholder';
 
-export function ProjectCard({ project, compact = false, uniform = false }: { project: Project; compact?: boolean; uniform?: boolean }) {
+type CapabilityProof = {
+  label: string;
+  description: string;
+};
+
+export function ProjectCard({
+  project,
+  compact = false,
+  uniform = false,
+  capabilityProof,
+  displayTitle,
+}: {
+  project: Project;
+  compact?: boolean;
+  uniform?: boolean;
+  capabilityProof?: CapabilityProof;
+  displayTitle?: string;
+}) {
   const detailPath = `/projects/${project.slug}`;
   const hasThumbnail = Boolean(project.thumbnail?.src);
 
@@ -20,7 +37,13 @@ export function ProjectCard({ project, compact = false, uniform = false }: { pro
       ) : null}
       <div className="project-card__content">
         <p className="project-card__category">{project.category.join(' · ')}</p>
-        <h3>{project.title}</h3>
+        <h3>{displayTitle ?? project.title}</h3>
+        {capabilityProof ? (
+          <div className="project-card__capability">
+            <strong>{capabilityProof.label}</strong>
+            <p>{capabilityProof.description}</p>
+          </div>
+        ) : null}
         <p className="project-card__tagline">{project.tagline}</p>
         {compact && !uniform ? <p className="project-card__description">{project.description ?? project.problem}</p> : !compact ? (
           <div className="project-card__logic">
@@ -35,6 +58,9 @@ export function ProjectCard({ project, compact = false, uniform = false }: { pro
             </div>
             <div className="tag-list">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
           </>
+        ) : null}
+        {uniform && capabilityProof ? (
+          <div className="tag-list tag-list--supporting">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
         ) : null}
         {project.detailPageEnabled ? <Link className="detail-link" to={detailPath}>더보기 <ArrowUpRight size={17} /></Link> : null}
       </div>

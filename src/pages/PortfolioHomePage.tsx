@@ -5,6 +5,7 @@ import { Header } from '../components/Header';
 import { ProjectCard } from '../components/ProjectCard';
 import { profile } from '../data/profile';
 import { featuredProjects } from '../data/projects';
+import '../styles/home-work.css';
 
 const heroEvidence = [
   {
@@ -24,8 +25,30 @@ const heroEvidence = [
   },
 ];
 
+const homeWorkOrder = ['magic-ecole', 'printbank-npb', 'printbank-main'];
+
+const projectCapabilityProof = {
+  'magic-ecole': {
+    title: '교육 SaaS LMS 리뉴얼',
+    label: '플랫폼 구조 설계',
+    description: '역할·권한과 콘텐츠 구조를 설계한 플랫폼 기획 경험',
+  },
+  'printbank-npb': {
+    title: 'New Printbank 신규 사이트 구축',
+    label: '신규 서비스 구축',
+    description: 'FO·BO 전체 정책과 운영 프로세스를 연결한 서비스 구축 경험',
+  },
+  'printbank-main': {
+    title: 'Printbank 메인페이지 리뉴얼',
+    label: '데이터 기반 개선',
+    description: 'GA4 분석으로 평균 참여시간을 1.7배 높인 데이터 기반 개선 경험',
+  },
+} as const;
+
 export function PortfolioHomePage() {
-  const representativeProjects = featuredProjects.slice(0, 3);
+  const representativeProjects = homeWorkOrder
+    .map((slug) => featuredProjects.find((project) => project.slug === slug))
+    .filter((project): project is (typeof featuredProjects)[number] => Boolean(project));
   const briefPrinciples = profile.principles.slice(0, 3);
 
   return (
@@ -74,7 +97,14 @@ export function PortfolioHomePage() {
           />
           <div className="compact-grid home-featured-grid">
             {representativeProjects.map((project) => (
-              <ProjectCard compact uniform key={project.slug} project={project} />
+              <ProjectCard
+                compact
+                uniform
+                capabilityProof={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]}
+                displayTitle={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]?.title}
+                key={project.slug}
+                project={project}
+              />
             ))}
           </div>
         </section>
