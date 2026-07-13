@@ -212,19 +212,6 @@ button.image-placeholder.has-image{
   text-overflow:ellipsis;
   white-space:nowrap;
 }
-.home-featured-grid .project-card__capability p{
-  display:-webkit-box;
-  overflow:hidden;
-  min-height:48px;
-  margin:0;
-  color:var(--p-text);
-  font-size:16px;
-  font-weight:760;
-  line-height:1.5;
-  word-break:keep-all;
-  -webkit-box-orient:vertical;
-  -webkit-line-clamp:2;
-}
 .home-featured-grid .tag-list--supporting{
   align-self:start;
   min-height:60px;
@@ -257,9 +244,6 @@ button.image-placeholder.has-image{
 }
 .project-card__media-placeholder span{color:var(--p-accent);font-size:12px;font-weight:850}
 .project-card__media-placeholder strong{max-width:80%;font-size:18px;line-height:1.4}
-.work-grid .detail-link,
-.home-featured-grid .detail-link{align-self:end;margin-top:18px}
-
 @media (min-width:1024px) and (max-width:1180px){
   .work-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }

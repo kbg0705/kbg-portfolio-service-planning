@@ -32,17 +32,14 @@ const projectCapabilityProof = {
   'printbank-npb': {
     title: 'PRINTBANK_CONVERSION',
     label: 'FO·BO 통합 기획',
-    description: '운영 요구를 RP·WBS·QA 기준으로 구조화',
   },
   'magic-ecole': {
     title: 'Magic Ecole LMS',
     label: '교육 SaaS 구조 설계',
-    description: '역할·권한과 콘텐츠 재사용 구조 설계',
   },
   'visang-aidt': {
     title: '비상교육 AI 디지털교과서',
     label: '교육 서비스 QA',
-    description: '교사 사용 상황을 기능 문서와 검증 기준으로 연결',
   },
 } as const;
 

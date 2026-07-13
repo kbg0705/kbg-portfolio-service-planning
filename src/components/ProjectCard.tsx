@@ -1,4 +1,3 @@
-import { ArrowUpRight } from 'lucide-react';
 import type { MouseEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import type { Project } from '../types/project';
@@ -6,7 +5,6 @@ import { resolveAssetPath } from './common/ImagePlaceholder';
 
 type CapabilityProof = {
   label: string;
-  description: string;
 };
 
 export function ProjectCard({
@@ -55,8 +53,10 @@ export function ProjectCard({
         {capabilityProof ? (
           <div className="project-card__capability">
             <strong>{capabilityProof.label}</strong>
-            <p>{capabilityProof.description}</p>
           </div>
+        ) : null}
+        {uniform ? (
+          <div className="tag-list tag-list--supporting">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
         ) : null}
         <p className="project-card__tagline">{project.tagline}</p>
         {uniform ? (
@@ -80,10 +80,6 @@ export function ProjectCard({
             <div className="tag-list">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
           </>
         ) : null}
-        {uniform ? (
-          <div className="tag-list tag-list--supporting">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
-        ) : null}
-        {project.detailPageEnabled ? <Link className="detail-link" to={detailPath}>자세히 <ArrowUpRight aria-hidden="true" size={17} /></Link> : null}
       </div>
     </article>
   );
