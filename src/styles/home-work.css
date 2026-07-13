@@ -1,11 +1,13 @@
 .work-grid .project-card__content,
-.home-featured-grid .project-card__content{
+.home-featured-grid .project-card__content,
+.home-project-grid .project-card__content{
   grid-template-rows:auto auto auto;
 }
 
 .work-grid .tag-list--supporting,
-.home-featured-grid .tag-list--supporting{
+.home-featured-grid .tag-list--supporting,
+.home-project-grid .tag-list--supporting{
   align-self:start;
   min-height:0;
-  margin:10px 0 0;
+  margin:var(--space-2) 0 0;
 }
