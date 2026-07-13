@@ -134,30 +134,79 @@
   gap:14px;
 }
 
+.work-showcase{
+  display:grid;
+  gap:16px;
+}
+
+.work-showcase__viewport{
+  overflow:hidden;
+  border-radius:8px;
+}
+
+.work-showcase__track{
+  display:flex;
+  transition:transform .42s ease;
+  will-change:transform;
+}
+
+.work-showcase__slide{
+  flex:0 0 100%;
+  min-width:100%;
+}
+
+.work-showcase__controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+}
+
+.work-showcase__controls button{
+  display:grid;
+  place-items:center;
+  width:38px;
+  height:38px;
+  padding:0;
+  border:1px solid var(--p-line);
+  border-radius:999px;
+  background:#fff;
+  color:var(--p-text);
+  cursor:pointer;
+}
+
+.work-showcase__controls button:hover{
+  border-color:var(--p-accent);
+  color:var(--p-accent);
+}
+
+.work-showcase__dots{
+  display:flex;
+  gap:7px;
+}
+
+.work-showcase__dots span{
+  width:6px;
+  height:6px;
+  border-radius:999px;
+  background:#c9c9d6;
+}
+
+.work-showcase__dots span.is-active{
+  width:22px;
+  background:var(--p-accent);
+}
+
 .project-card--work{
-  grid-template-columns:minmax(320px,42%) minmax(0,1fr);
+  grid-template-columns:minmax(360px,48%) minmax(0,1fr);
   grid-template-areas:
     "media content";
   align-items:stretch;
-  min-height:236px;
+  min-height:276px;
 }
 
 .project-card--work .project-card__meta{
-  position:absolute;
-  z-index:3;
-  top:14px;
-  left:14px;
-  right:auto;
-  display:inline-flex;
-  gap:8px;
-  max-width:calc(42% - 28px);
-  padding:7px 9px;
-  border:0;
-  border-radius:999px;
-  background:rgba(255,255,255,.9);
-  color:var(--p-text);
-  box-shadow:0 8px 20px rgba(20,20,30,.08);
-  backdrop-filter:blur(10px);
+  display:none;
 }
 
 .project-card--work .project-card__meta p{
@@ -179,7 +228,16 @@
 .project-card--work .project-card__content{
   grid-area:content;
   align-content:start;
-  padding:2px 0 0 6px;
+  padding:4px 4px 4px 10px;
+}
+
+.project-card--work .detail-link{
+  justify-self:start;
+  width:max-content;
+  min-width:0;
+  min-height:38px;
+  padding:0 14px;
+  white-space:nowrap;
 }
 
 .project-thumb-slider{
@@ -397,6 +455,7 @@
 }
 
 @media (prefers-reduced-motion:reduce){
+  .work-showcase__track,
   .project-thumb-slider__track,
   .project-thumb-slider__button{
     transition:none;

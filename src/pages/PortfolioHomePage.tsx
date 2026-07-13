@@ -1,4 +1,5 @@
-import { ArrowRight, UserRound } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight, UserRound } from 'lucide-react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -46,10 +47,14 @@ const projectCapabilityProof = {
 } as const;
 
 export function PortfolioHomePage() {
+  const [activeWorkIndex, setActiveWorkIndex] = useState(0);
   const representativeProjects = homeWorkOrder
     .map((slug) => projects.find((project) => project.slug === slug))
     .filter((project): project is (typeof projects)[number] => Boolean(project));
   const briefPrinciples = profile.principles.slice(0, 3);
+  const moveWork = (direction: -1 | 1) => {
+    setActiveWorkIndex((current) => (current + direction + representativeProjects.length) % representativeProjects.length);
+  };
 
   return (
     <>
@@ -95,17 +100,33 @@ export function PortfolioHomePage() {
             eyebrow="대표 프로젝트"
             title="서비스 기획 역량 3가지"
           />
-          <div className="compact-grid home-featured-grid">
-            {representativeProjects.map((project) => (
-              <ProjectCard
-                compact
-                uniform
-                capabilityProof={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]}
-                displayTitle={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]?.title}
-                key={project.slug}
-                project={project}
-              />
-            ))}
+          <div className="work-showcase" aria-label="대표 프로젝트 슬라이드">
+            <div className="work-showcase__viewport">
+              <div className="work-showcase__track" style={{ transform: `translateX(-${activeWorkIndex * 100}%)` }}>
+                {representativeProjects.map((project, index) => (
+                  <div className="work-showcase__slide" aria-hidden={index !== activeWorkIndex} inert={index !== activeWorkIndex ? true : undefined} key={project.slug}>
+                    <ProjectCard
+                      compact
+                      uniform
+                      capabilityProof={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]}
+                      displayTitle={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]?.title}
+                      project={project}
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="work-showcase__controls" aria-label="대표 프로젝트 이동">
+              <button type="button" onClick={() => moveWork(-1)} aria-label="이전 대표 프로젝트">
+                <ChevronLeft size={18} aria-hidden="true" />
+              </button>
+              <div className="work-showcase__dots" aria-hidden="true">
+                {representativeProjects.map((project, index) => <span className={index === activeWorkIndex ? 'is-active' : undefined} key={project.slug} />)}
+              </div>
+              <button type="button" onClick={() => moveWork(1)} aria-label="다음 대표 프로젝트">
+                <ChevronRight size={18} aria-hidden="true" />
+              </button>
+            </div>
           </div>
         </section>
 
