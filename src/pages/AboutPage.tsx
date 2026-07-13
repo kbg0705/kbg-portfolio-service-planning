@@ -19,7 +19,7 @@ export function AboutPage() {
         </header>
 
         <section className="about-proof" aria-label="경력 요약">
-          <div><strong>3</strong><span>서비스 조직 경험</span></div>
+          <div><strong>3</strong><span>협업 프로젝트 경험</span></div>
           <div><strong>14</strong><span>Sprint 운영</span></div>
           <div><strong>4.29</strong><span>학부 GPA / 4.5</span></div>
           <div><strong>3</strong><span>직무 관련 자격</span></div>
