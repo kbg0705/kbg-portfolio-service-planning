@@ -80,7 +80,7 @@ export function ProjectCasePage() {
         <ProjectDetailView project={project} detail={detail} active={active} onOpen={openImage} />
       </main>
       <Footer email={profile.email} />
-      {modalIndex !== null ? <ImageModal images={images} index={modalIndex} onClose={() => setModalIndex(null)} onMove={setModalIndex} /> : null}
+      {modalIndex !== null ? <ImageModal images={images} index={modalIndex} onClose={() => setModalIndex(null)} /> : null}
     </>
   );
 }
