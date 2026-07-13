@@ -245,16 +245,23 @@
 .project-card--work .project-thumb,
 .project-card--work .project-card__media-placeholder{
   grid-area:media;
-  align-self:center;
+  align-self:stretch;
   width:100%;
-  height:auto;
+  height:100%;
   min-height:190px;
 }
 
 .project-card--work .project-card__content{
   grid-area:content;
-  align-content:start;
+  display:flex;
+  flex-direction:column;
+  height:100%;
   padding:4px 4px 4px 10px;
+}
+
+.project-card--work .project-card__quickfacts{
+  margin-top:auto;
+  padding-top:10px;
 }
 
 .project-thumb{
@@ -304,7 +311,7 @@
 .work-grid .tag-list--supporting,
 .home-featured-grid .tag-list--supporting{
   min-height:0;
-  margin:8px 0 14px;
+  margin:8px 0 12px;
 }
 
 .tag{
