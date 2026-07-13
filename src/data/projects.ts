@@ -15,7 +15,7 @@ export const featuredProjects: Project[] = [
     contribution: '문제 구조화 · 정책 설계 · 화면정의 · 개발 협의 · QA',
     status: '기획·개발·QA 병행',
     tools: ['Figma', 'Jira', 'Google Sheets', 'SQL/DB 구조 협의'],
-    tags: ['Problem Definition', 'FO·BO', 'Product Policy', 'WBS', 'PM'],
+    tags: ['문제 구조화', 'FO·BO 기획', '일정·QA 관리'],
     problem: '신규 인쇄 이커머스 구축 과정에서 상품·가격·회원·주문·출고 요구가 동시에 전달되어 개발 범위와 우선순위가 불명확했습니다.',
     decision: '운영 요구를 RP 단위로 분류하고 선·후행 관계와 구현 가능성을 기준으로 WBS와 정책 문서에 연결했습니다.',
     impact: [
@@ -43,7 +43,7 @@ export const featuredProjects: Project[] = [
     contribution: 'GA4 분석 · 문제 정의 · 정보 우선순위 · 화면 기획 · 디자이너 협업',
     status: '출시 및 지표 검증 완료',
     tools: ['GA4', 'Figma', 'Google Sheets'],
-    tags: ['GA4', 'User Journey', 'Content Priority', 'UX Improvement'],
+    tags: ['GA4 분석', '사용자 흐름', 'UX 개선'],
     problem: '사용자가 주문조회 상태에 머무르고 메인 배너와 신상품 콘텐츠의 탐색 성과가 낮았습니다.',
     decision: '방문 목적별 사용자 상태를 나누고 배너, 팝업, 상담 진입점의 정보 우선순위를 재정의했습니다.',
     impact: [
@@ -72,7 +72,7 @@ export const featuredProjects: Project[] = [
     contribution: '사용자 문제 정의 · 권한 정책 · 콘텐츠 구조 · 화면설계 · Scrum 운영',
     status: '기획 완료 · 단계적 개발',
     tools: ['Figma', 'Jira', 'Confluence', 'Google Docs'],
-    tags: ['LMS', 'Role & Permission', 'Content Structure', 'Back Office'],
+    tags: ['LMS 기획', '권한 정책', '콘텐츠 구조'],
     problem: '고정된 권한 체계와 낮은 콘텐츠 재사용성 때문에 새로운 역할, 강의, 운영 요구마다 추가 개발이 필요했습니다.',
     decision: '전역 권한과 강의 내부 권한을 분리하고 Custom Role, 콘텐츠 라이브러리, 운영자 설정 구조를 설계했습니다.',
     impact: [
@@ -101,7 +101,7 @@ export const featuredProjects: Project[] = [
     contribution: '제품 흐름 · AI 상태 UX · 검색·근거 구조 · 협업 프로세스',
     status: 'v1.1 요구사항 완료 · 개발 착수',
     tools: ['Figma', 'Jira', 'Confluence', 'RAG 구조 협의'],
-    tags: ['Generative AI', 'RAG', 'Search UX', 'Trust'],
+    tags: ['생성형 AI', '검색 UX', '근거 설계'],
     problem: '긴 분석 시간, 복수 쟁점 비교, 결과 신뢰성 문제가 전문가의 판단 흐름을 끊었습니다.',
     decision: '부분 결과, 쟁점 이동, 재분석, 판례·예규 근거 확인을 하나의 검토 흐름으로 설계했습니다.',
     impact: [
@@ -124,7 +124,7 @@ export const featuredProjects: Project[] = [
     contribution: '주문 흐름 · 파일 가이드 · 운영 자동화 · 반응형 화면 · UX Writing',
     status: '출시 완료',
     tools: ['Figma', 'Cafe24', 'Google Drive', '인트라넷'],
-    tags: ['New Build', 'Operations', 'UX Writing', 'Automation'],
+    tags: ['신규 구축', '운영 효율화', 'UX 문구'],
     problem: '작업 파일 오류로 CS가 반복되고 주문 정보를 수작업으로 옮겨야 했습니다.',
     decision: '업로드 시점에 상품별 가이드를 제공하고 주문과 인트라넷을 연결했습니다.',
     impact: [
@@ -153,7 +153,7 @@ export const featuredProjects: Project[] = [
     contribution: '인터뷰 · 그룹핑 · 서비스 구조 · 발표',
     status: '학술대회 발표',
     tools: ['User Interview', 'Affinity Mapping', 'Journey Map', 'Service Blueprint'],
-    tags: ['Decision Support', 'Human-in-the-loop', 'Research'],
+    tags: ['의사결정 지원', '사용자 리서치', '서비스디자인'],
     problem: '고객은 상담 후에도 용도·예산·일정·품질을 비교할 선택 기준이 부족했습니다.',
     decision: '운영자의 경험적 추천을 목적·조건·근거 중심의 의사결정 지원 체계로 구조화했습니다.',
     impact: [
@@ -177,7 +177,7 @@ export const featuredProjects: Project[] = [
     team: '8명',
     status: '리뉴얼 및 행사 운영 완료',
     tools: ['ZEP', 'Figma', 'User Feedback'],
-    tags: ['Metaverse', 'Navigation', 'Content', 'Leadership'],
+    tags: ['메타버스', '이동 UX', '콘텐츠 기획'],
     problem: '넓은 공간에서 목적지를 찾기 어렵고 반복 참여할 콘텐츠가 부족했습니다.',
     decision: '포털·홈·차량 호출로 이동을 개선하고 학교 IP 기반 레이싱 콘텐츠와 행사를 운영했습니다.',
     impact: [
@@ -191,10 +191,10 @@ export const featuredProjects: Project[] = [
 ];
 
 export const compactProjects: Project[] = [
-  { slug: 'visang-aidt', order: 7, tier: 'compact', service: 'Visang AIDT', category: ['Product', 'SaaS'], title: '비상교육 AI 디지털교과서 QA', tagline: '교사의 출력 니즈와 공공 QA 기준을 기능 요구사항과 검증 문서로 연결했습니다.', period: '2024.07–2025.02', role: '서비스 기획 · QA', contribution: '기능 기획 · 화면정의서 보완 · 기술검증 문서 작성 참여 · QA 자동화', status: '기획 및 품질 검증 참여', tools: ['Figma', 'Jira', 'Selenium'], tags: ['AIDT', 'QA', 'Jira'], problem: 'AI 디지털교과서 사용 상황에서 교사의 출력 니즈와 반복 테스트 기준을 함께 정의해야 했습니다.', decision: '사용 상황을 기준으로 인쇄 기능 우선순위를 정리하고 기능 문서, 매뉴얼, QA 시나리오로 검증 기준을 연결했습니다.', impact: [{ value: 'QA', label: '기능·문서·검증 기준 연결', description: '절감 수치는 별도 주장하지 않음', type: 'delivered' }], cardSummary: { problem: '교사 사용 상황과 공공 QA 기준을 기능 문서와 테스트 기준으로 연결해야 했습니다.', role: '서비스 기획 · QA로 화면정의서 보완, 기술검증 문서, Jira 기반 QA 협업에 참여했습니다.', result: '기능·문서·검증 기준을 연결한 QA 산출물을 정리했습니다.' }, detailPageEnabled: false, description: '교사의 출력 니즈를 사용 상황으로 정의하고 화면정의서, 기술검증 문서, QA 흐름으로 연결한 교육 서비스 프로젝트입니다.' },
-  { slug: 'smooth-route', order: 8, tier: 'compact', service: 'SmoothRoute', category: ['AI & Search', 'Research'], title: 'AI·데이터 기반 대중교통 혼잡도 예측 UX', tagline: '혼잡 정보보다 사용자가 원하는 시간에 도착할 수 있는지를 먼저 보여줬습니다.', period: '2025.04–2025.05', role: '서비스 기획', contribution: '문제 정의 · PRD · UI · AI 기반 시선 검증', status: '프로토타입 검증', tools: ['Clueify', 'Creatie', 'Interview'], tags: ['AI UX', 'PRD', 'Heatmap', 'Experiment'], problem: '혼잡도 수치는 있었지만 사용자의 실제 질문인 도착 가능성에 답하지 못했습니다.', decision: '도착 가능 시간을 중심으로 UI를 재구성하고 AI 기반 히트맵과 클릭률 예측으로 비교했습니다.', impact: [{ value: '24%p', label: '시선 집중도 향상', description: 'AI 기반 시뮬레이션', type: 'simulated' }, { value: '12→28%', label: 'CTA 클릭률 예측 개선', description: '실사용 지표가 아닌 예측값', type: 'simulated' }], detailPageEnabled: false, description: 'AI 도구를 활용해 문제 정의, PRD 작성, 화면 설계, 시선 히트맵 기반 검증까지 수행했습니다.' },
-  { slug: 'my-ai-service-business', order: 9, tier: 'compact', service: 'MY AI', category: ['AI & Search', 'Service Design', 'Academic'], title: 'AI 활용 관리 서비스 비즈니스 설계', tagline: 'AI 도구 선택과 구독 관리 문제를 B2C에서 B2B 운영 솔루션으로 확장했습니다.', period: 'Academic Project', role: '서비스 비즈니스 설계', contribution: '이해관계자 · BMC · Blueprint · Ecosystem', status: '학업 프로젝트 완료', tools: ['BMC', 'Service Blueprint', 'Ecosystem Map'], tags: ['Service Business', 'AI Recommendation', 'B2B'], problem: '사용자는 상황에 맞는 AI 도구를 고르고 구독과 활용 내역을 관리하기 어려웠습니다.', decision: '이해관계자와 데이터 교환을 기준으로 B2C 추천에서 B2B 운영 구조까지 설계했습니다.', impact: [{ value: '4 Maps', label: '서비스 비즈니스 산출물', description: '이해관계자·BMC·블루프린트·생태계', type: 'delivered' }], detailPageEnabled: false, description: '이해관계자 맵, 비즈니스 모델 캔버스, 서비스 블루프린트, 생태계 맵으로 B2C에서 B2B 운영 솔루션까지 확장되는 구조를 설계했습니다.' },
-  { slug: 'picar-ar-sns', order: 10, tier: 'compact', service: 'PICAR', category: ['Product', 'Academic'], title: '위치 기반 AR 길찾기 및 SNS', tagline: '장소 탐색부터 포즈 재현과 공유까지 하나의 촬영 경험으로 연결했습니다.', period: 'Graduation Project', role: '서비스 기획 · 구현', contribution: 'AR UX · 위치 기반 흐름 · SNS 구조', status: '졸업 프로젝트 완료', tools: ['AR', 'Location API', 'Mobile UX'], tags: ['AR', 'Location', 'SNS', 'UX'], problem: '촬영 장소와 포즈를 찾고 결과를 공유하는 과정이 여러 서비스에 나뉘어 있었습니다.', decision: 'AR 길찾기, 투명도 포즈 가이드, 촬영 결과 공유를 하나의 흐름으로 설계했습니다.', impact: [{ value: 'Prototype', label: '위치 기반 AR SNS 구현', description: '졸업 프로젝트', type: 'delivered' }], detailPageEnabled: false, description: '위치 기반 AR 길찾기, 촬영 포즈 투명도 가이드, 촬영 결과 공유 SNS 흐름을 설계하고 구현한 졸업 프로젝트입니다.' },
+  { slug: 'visang-aidt', order: 7, tier: 'compact', service: 'Visang AIDT', category: ['Product', 'SaaS'], title: '비상교육 AI 디지털교과서 QA', tagline: '교사의 출력 니즈와 공공 QA 기준을 기능 요구사항과 검증 문서로 연결했습니다.', period: '2024.07–2025.02', role: '서비스 기획 · QA', contribution: '기능 기획 · 화면정의서 보완 · 기술검증 문서 작성 참여 · QA 자동화', status: '기획 및 품질 검증 참여', tools: ['Figma', 'Jira', 'Selenium'], tags: ['AIDT QA', '화면정의', '검증 문서'], problem: 'AI 디지털교과서 사용 상황에서 교사의 출력 니즈와 반복 테스트 기준을 함께 정의해야 했습니다.', decision: '사용 상황을 기준으로 인쇄 기능 우선순위를 정리하고 기능 문서, 매뉴얼, QA 시나리오로 검증 기준을 연결했습니다.', impact: [{ value: 'QA', label: '기능·문서·검증 기준 연결', description: '절감 수치는 별도 주장하지 않음', type: 'delivered' }], cardSummary: { problem: '교사 사용 상황과 공공 QA 기준을 기능 문서와 테스트 기준으로 연결해야 했습니다.', role: '서비스 기획 · QA로 화면정의서 보완, 기술검증 문서, Jira 기반 QA 협업에 참여했습니다.', result: '기능·문서·검증 기준을 연결한 QA 산출물을 정리했습니다.' }, detailPageEnabled: false, description: '교사의 출력 니즈를 사용 상황으로 정의하고 화면정의서, 기술검증 문서, QA 흐름으로 연결한 교육 서비스 프로젝트입니다.' },
+  { slug: 'smooth-route', order: 8, tier: 'compact', service: 'SmoothRoute', category: ['AI & Search', 'Research'], title: 'AI·데이터 기반 대중교통 혼잡도 예측 UX', tagline: '혼잡 정보보다 사용자가 원하는 시간에 도착할 수 있는지를 먼저 보여줬습니다.', period: '2025.04–2025.05', role: '서비스 기획', contribution: '문제 정의 · PRD · UI · AI 기반 시선 검증', status: '프로토타입 검증', tools: ['Clueify', 'Creatie', 'Interview'], tags: ['AI UX', 'PRD', '시선 검증'], problem: '혼잡도 수치는 있었지만 사용자의 실제 질문인 도착 가능성에 답하지 못했습니다.', decision: '도착 가능 시간을 중심으로 UI를 재구성하고 AI 기반 히트맵과 클릭률 예측으로 비교했습니다.', impact: [{ value: '24%p', label: '시선 집중도 향상', description: 'AI 기반 시뮬레이션', type: 'simulated' }, { value: '12→28%', label: 'CTA 클릭률 예측 개선', description: '실사용 지표가 아닌 예측값', type: 'simulated' }], detailPageEnabled: false, description: 'AI 도구를 활용해 문제 정의, PRD 작성, 화면 설계, 시선 히트맵 기반 검증까지 수행했습니다.' },
+  { slug: 'my-ai-service-business', order: 9, tier: 'compact', service: 'MY AI', category: ['AI & Search', 'Service Design', 'Academic'], title: 'AI 활용 관리 서비스 비즈니스 설계', tagline: 'AI 도구 선택과 구독 관리 문제를 B2C에서 B2B 운영 솔루션으로 확장했습니다.', period: 'Academic Project', role: '서비스 비즈니스 설계', contribution: '이해관계자 · BMC · Blueprint · Ecosystem', status: '학업 프로젝트 완료', tools: ['BMC', 'Service Blueprint', 'Ecosystem Map'], tags: ['서비스 비즈니스', 'AI 추천', 'B2B'], problem: '사용자는 상황에 맞는 AI 도구를 고르고 구독과 활용 내역을 관리하기 어려웠습니다.', decision: '이해관계자와 데이터 교환을 기준으로 B2C 추천에서 B2B 운영 구조까지 설계했습니다.', impact: [{ value: '4 Maps', label: '서비스 비즈니스 산출물', description: '이해관계자·BMC·블루프린트·생태계', type: 'delivered' }], detailPageEnabled: false, description: '이해관계자 맵, 비즈니스 모델 캔버스, 서비스 블루프린트, 생태계 맵으로 B2C에서 B2B 운영 솔루션까지 확장되는 구조를 설계했습니다.' },
+  { slug: 'picar-ar-sns', order: 10, tier: 'compact', service: 'PICAR', category: ['Product', 'Academic'], title: '위치 기반 AR 길찾기 및 SNS', tagline: '장소 탐색부터 포즈 재현과 공유까지 하나의 촬영 경험으로 연결했습니다.', period: 'Graduation Project', role: '서비스 기획 · 구현', contribution: 'AR UX · 위치 기반 흐름 · SNS 구조', status: '졸업 프로젝트 완료', tools: ['AR', 'Location API', 'Mobile UX'], tags: ['AR', '위치 기반', 'SNS'], problem: '촬영 장소와 포즈를 찾고 결과를 공유하는 과정이 여러 서비스에 나뉘어 있었습니다.', decision: 'AR 길찾기, 투명도 포즈 가이드, 촬영 결과 공유를 하나의 흐름으로 설계했습니다.', impact: [{ value: 'Prototype', label: '위치 기반 AR SNS 구현', description: '졸업 프로젝트', type: 'delivered' }], detailPageEnabled: false, description: '위치 기반 AR 길찾기, 촬영 포즈 투명도 가이드, 촬영 결과 공유 SNS 흐름을 설계하고 구현한 졸업 프로젝트입니다.' },
 ];
 
 const coverImages: Record<string, string> = {

@@ -25,7 +25,7 @@ const heroEvidence = [
   },
 ];
 
-const homeWorkOrder = ['printbank-npb', 'magic-ecole', 'visang-aidt', 'print-studio'];
+const homeWorkOrder = ['printbank-npb', 'magic-ecole', 'visang-aidt'];
 
 const projectCapabilityProof = {
   'printbank-npb': {
@@ -42,11 +42,6 @@ const projectCapabilityProof = {
     title: '비상교육 AI 디지털교과서',
     label: '교육 서비스 QA',
     description: '교사 사용 상황과 공공 QA 기준을 기능 문서와 검증 흐름으로 연결한 경험',
-  },
-  'print-studio': {
-    title: 'PrintStudio 신규 구축',
-    label: '운영 효율화',
-    description: '주문 오류와 반복 업무를 파일 가이드와 시스템 연동으로 줄인 구축 경험',
   },
 } as const;
 

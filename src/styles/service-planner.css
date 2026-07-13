@@ -4,6 +4,19 @@
   margin:16px 0 0;
 }
 
+.project-card .tag-list{
+  align-items:flex-start;
+}
+
+.project-card .tag{
+  max-width:100%;
+  line-height:1.35;
+  text-align:center;
+  white-space:nowrap;
+  word-break:keep-all;
+  overflow-wrap:normal;
+}
+
 .project-card__quickfacts div{
   display:grid;
   grid-template-columns:42px minmax(0,1fr);
