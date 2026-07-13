@@ -10,7 +10,7 @@ export function AboutPage() {
       <Header />
       <main className="page-shell about-page">
         <header className="about-hero">
-          <div className="about-hero__metric"><strong>2년 9개월</strong><span>Service Planning Experience</span></div>
+          <div className="about-hero__metric"><strong>2년 9개월</strong><span>서비스 기획 경력</span></div>
           <p>{profile.summary}</p>
           <div className="hero-actions">
             <Link className="primary-action" to="/contact">연락하기 <Mail size={18} /></Link>
@@ -27,8 +27,8 @@ export function AboutPage() {
 
         <section className="about-section">
           <div className="about-section__heading">
-            <p className="eyebrow">Experience</p>
-            <h2>서비스의 앞단과 운영의 뒷단을 함께 기획했습니다.</h2>
+            <p className="eyebrow">경력</p>
+            <h2>화면과 운영 기준을 함께 기획했습니다.</h2>
           </div>
           <div className="career-list">
             {profile.career.map((item, index) => (
@@ -51,8 +51,8 @@ export function AboutPage() {
 
         <section className="about-section">
           <div className="about-section__heading">
-            <p className="eyebrow">How I work</p>
-            <h2>서비스 기획 직무와 연결되는 네 가지 실행 역량</h2>
+            <p className="eyebrow">역량</p>
+            <h2>서비스 기획 실행 역량</h2>
           </div>
           <div className="capability-grid">
             {profile.capabilities.map((item, index) => (
@@ -68,22 +68,22 @@ export function AboutPage() {
 
         <section className="about-section planning-product">
           <div>
-            <p className="eyebrow">Built with Codex</p>
-            <h2>Planning to Product</h2>
+            <p className="eyebrow">제작 방식</p>
+            <h2>기획에서 구현까지</h2>
             <p>
-              이 포트폴리오는 정보구조와 콘텐츠, 화면 구성, 인터랙션을 직접 기획하고 Codex를 활용해 구현했습니다.
-              요구사항을 코드로 구체화하고, 결과를 검증하며 반복 개선하는 방식으로 완성했습니다.
+              정보구조, 콘텐츠, 화면 구성을 직접 기획하고 Codex로 구현했습니다.
+              요구사항을 코드로 구체화하며 검증과 개선을 반복했습니다.
             </p>
           </div>
           <div className="tag-list" aria-label="포트폴리오 제작 방식">
-            {['Information Architecture', 'Content Design', 'AI-assisted Development', 'QA & Iteration'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
+            {['정보구조', '콘텐츠 설계', 'AI 활용 구현', '검증과 개선'].map((tag) => <span className="tag" key={tag}>{tag}</span>)}
           </div>
         </section>
 
         <section className="about-section about-records">
-          <RecordGroup title="Education" items={profile.education} />
-          <RecordGroup title="License" items={profile.certifications} />
-          <RecordGroup title="Experience" items={profile.activities} />
+          <RecordGroup title="학력" items={profile.education} />
+          <RecordGroup title="자격" items={profile.certifications} />
+          <RecordGroup title="활동" items={profile.activities} />
         </section>
       </main>
       <Footer email={profile.email} />

@@ -15,8 +15,8 @@ const academicProjectSlugs = new Set([
 ]);
 
 export function WorkPage() {
-  const [filter, setFilter] = useState<ProjectCategoryFilter>('All');
-  const filtered = useMemo(() => filter === 'All' ? projects : projects.filter((project) => project.category.includes(filter)), [filter]);
+  const [filter, setFilter] = useState<ProjectCategoryFilter>('전체');
+  const filtered = useMemo(() => filter === '전체' ? projects : projects.filter((project) => project.category.includes(filter)), [filter]);
   const practicalProjects = filtered.filter((project) => !academicProjectSlugs.has(project.slug));
   const academicProjects = filtered.filter((project) => academicProjectSlugs.has(project.slug));
 
@@ -26,19 +26,19 @@ export function WorkPage() {
       <main className="page-shell">
         <header className="metric-hero">
           <strong>{projects.length}</strong>
-          <div><span>Projects</span><p>{practicalProjects.length}개 실무 · {academicProjects.length}개 학부 및 대학원</p></div>
+          <div><span>프로젝트</span><p>{practicalProjects.length}개 실무 · {academicProjects.length}개 학업/연구</p></div>
         </header>
         <div className="filter-bar" aria-label="프로젝트 필터">
           {projectCategories.map((category) => <button type="button" key={category} aria-pressed={filter === category} onClick={() => setFilter(category)}>{category}</button>)}
         </div>
         <WorkGroup
-          eyebrow="Professional"
+          eyebrow="실무"
           title="실무 프로젝트"
           projects={practicalProjects}
         />
         <WorkGroup
-          eyebrow="Academic"
-          title="학부 및 대학원 프로젝트"
+          eyebrow="학업/연구"
+          title="학업 및 연구 프로젝트"
           projects={academicProjects}
         />
       </main>

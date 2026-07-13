@@ -19,14 +19,14 @@ export const detailSections = [
 
 const sectionLabels: Record<(typeof detailSections)[number], string> = {
   summary: '요약',
-  context: 'Problem',
-  evidence: 'Evidence',
+  context: '문제',
+  evidence: '근거',
   'feedback-backlog': '구조화',
-  decisions: 'Decision',
+  decisions: '판단',
   artifacts: '산출물',
-  collaboration: 'Execution',
-  outcomes: 'Result',
-  learnings: 'Learning',
+  collaboration: '실행',
+  outcomes: '결과',
+  learnings: '배운 점',
 };
 
 const outcomeLabels = {
@@ -50,10 +50,10 @@ export function ProjectDetailView({
   const artifacts = detail.artifacts.filter((image) => image.src);
   const hasFeedbackBacklog = Boolean(detail.feedbackBacklog?.image.src);
   const overview = [
-    ['Period', project.period],
-    ['Role', project.role],
+    ['기간', project.period],
+    ['역할', project.role],
     ['소속', project.affiliation ?? '개인 프로젝트'],
-    ['Status', project.status],
+    ['상태', project.status],
   ];
 
   return (
@@ -62,12 +62,12 @@ export function ProjectDetailView({
         <Link to="/work" className="back-link"><ArrowLeft size={17} /> 전체 프로젝트</Link>
         <div className="detail-hero__grid">
           <div>
-            <p className="eyebrow">Project {String(project.order).padStart(2, '0')} · {project.category.join(' · ')}</p>
+            <p className="eyebrow">프로젝트 {String(project.order).padStart(2, '0')} · {project.category.join(' / ')}</p>
             <p className="detail-service">{project.service}</p>
             <h1>{project.title}</h1>
             <p className="detail-tagline">{project.tagline}</p>
             <div className="detail-contribution">
-              <span>My contribution</span>
+              <span>담당 범위</span>
               <p>{project.contribution}</p>
             </div>
           </div>
@@ -81,7 +81,7 @@ export function ProjectDetailView({
 
       <div className="detail-layout">
         <nav className="detail-toc" aria-label="상세 목차">
-          <span>Contents</span>
+          <span>목차</span>
           {detailSections
             .filter((id) => id !== 'feedback-backlog' || hasFeedbackBacklog)
             .filter((id) => id !== 'artifacts' || artifacts.length > 0)
@@ -89,15 +89,15 @@ export function ProjectDetailView({
         </nav>
 
         <div className="detail-content">
-          <Section id="summary" eyebrow="Case Summary" title="서비스 기획 의사결정 요약">
+          <Section id="summary" eyebrow="요약" title="의사결정 요약">
             <div className="case-summary">
-              <article className="case-summary__problem"><span>Problem</span><p>{detail.executiveSummary.problem}</p></article>
-              <article><span>Decision</span><p>{detail.executiveSummary.decision}</p></article>
-              <article><span>Outcome</span><p>{detail.executiveSummary.outcome}</p></article>
+              <article className="case-summary__problem"><span>문제</span><p>{detail.executiveSummary.problem}</p></article>
+              <article><span>판단</span><p>{detail.executiveSummary.decision}</p></article>
+              <article><span>결과</span><p>{detail.executiveSummary.outcome}</p></article>
             </div>
           </Section>
 
-          <Section id="context" eyebrow="Problem" title="어떤 불확실성을 해결했는가">
+          <Section id="context" eyebrow="문제" title="해결해야 한 불확실성">
             <div className="reading-column"><p>{detail.overview}</p><p>{detail.context}</p></div>
             {detail.problemFlow ? (
               <div className="process-strip" aria-label="문제 구조 도식">
@@ -106,14 +106,14 @@ export function ProjectDetailView({
             ) : null}
           </Section>
 
-          <Section id="evidence" eyebrow="Evidence" title="어떤 근거로 문제를 정의했는가">
+          <Section id="evidence" eyebrow="근거" title="문제를 정의한 근거">
             <div className="evidence-grid">
               {detail.evidence.map((item, index) => <article key={item.label}><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.label}</h3><p>{item.description}</p></article>)}
             </div>
           </Section>
 
           {hasFeedbackBacklog && detail.feedbackBacklog ? (
-            <Section id="feedback-backlog" eyebrow="From feedback to backlog" title={detail.feedbackBacklog.subtitle}>
+            <Section id="feedback-backlog" eyebrow="구조화" title={detail.feedbackBacklog.subtitle}>
               <div className="backlog-feature">
                 <div className="backlog-feature__copy">
                   <h3>{detail.feedbackBacklog.title}</h3>
@@ -133,9 +133,9 @@ export function ProjectDetailView({
             </Section>
           ) : null}
 
-          <blockquote className="key-question"><span>Key Question</span><p>{detail.keyQuestion}</p></blockquote>
+          <blockquote className="key-question"><span>핵심 질문</span><p>{detail.keyQuestion}</p></blockquote>
 
-          <Section id="decisions" eyebrow="Decision" title="무엇을 기준으로 우선순위를 정했는가">
+          <Section id="decisions" eyebrow="판단" title="우선순위 기준">
             {detail.decisionCriteria ? (
               <div className="priority-matrix" aria-label="우선순위 판단 기준">
                 {detail.decisionCriteria.map((item, index) => <span key={item}>{String(index + 1).padStart(2, '0')} {item}</span>)}
@@ -147,11 +147,11 @@ export function ProjectDetailView({
                   <b>{item.number}</b>
                   <div className="decision-item__body">
                     <h3>{item.title}</h3>
-                    <div className="decision-takeaway"><span>Decision</span><p>{item.decision}</p></div>
+                    <div className="decision-takeaway"><span>판단</span><p>{item.decision}</p></div>
                     <div className="decision-flow">
-                      <Fact label="Evidence" text={item.evidence} />
-                      <Fact label="Service Specification" text={item.specification} />
-                      <Fact label="Effect" text={item.effect} />
+                      <Fact label="근거" text={item.evidence} />
+                      <Fact label="정책/화면" text={item.specification} />
+                      <Fact label="효과" text={item.effect} />
                     </div>
                   </div>
                   {item.image?.src ? <ImagePlaceholder image={item.image} onOpen={() => onOpen(item.image!)} /> : null}
@@ -161,14 +161,14 @@ export function ProjectDetailView({
           </Section>
 
           {artifacts.length > 0 ? (
-            <Section id="artifacts" eyebrow="From policy to product" title="정책과 산출물">
+            <Section id="artifacts" eyebrow="산출물" title="정책과 산출물">
               <div className="artifact-grid">
                 {artifacts.map((image) => <figure key={image.placeholderTitle}><ImagePlaceholder image={image} onOpen={() => onOpen(image)} /><figcaption>{image.caption}</figcaption></figure>)}
               </div>
             </Section>
           ) : null}
 
-          <Section id="collaboration" eyebrow="Execution" title="팀이 실행할 수 있도록 어떻게 연결했는가">
+          <Section id="collaboration" eyebrow="실행" title="팀 실행 방식">
             {detail.executionFlow ? (
               <div className="execution-flow" aria-label="요구사항 실행 연결 구조">
                 {detail.executionFlow.map((item) => <span key={item}>{item}</span>)}
@@ -177,13 +177,13 @@ export function ProjectDetailView({
             <ol className="text-list">{detail.collaboration.map((item) => <li key={item}>{item}</li>)}</ol>
           </Section>
 
-          <Section id="outcomes" eyebrow="Result" title="무엇이 달라졌는가">
+          <Section id="outcomes" eyebrow="결과" title="결과">
             <div className="outcome-grid">
               {detail.outcomes.map((item) => <article key={item.label} data-type={item.type}><span>{outcomeLabels[item.type]}</span><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.description}</p></article>)}
             </div>
           </Section>
 
-          <Section id="learnings" eyebrow="Learning" title="서비스 기획자로서 배운 점">
+          <Section id="learnings" eyebrow="배운 점" title="배운 점">
             <ul className="text-list">{detail.learnings.map((item) => <li key={item}>{item}</li>)}</ul>
           </Section>
 

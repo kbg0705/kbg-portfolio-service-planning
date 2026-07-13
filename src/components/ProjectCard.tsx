@@ -42,7 +42,7 @@ export function ProjectCard({
         </div>
       ) : null}
       <div className="project-card__content">
-        <p className="project-card__category">{project.category.join(' · ')}</p>
+        <p className="project-card__category">{project.category.join(' / ')}</p>
         <h3>{displayTitle ?? project.title}</h3>
         {capabilityProof ? (
           <div className="project-card__capability">
@@ -54,14 +54,14 @@ export function ProjectCard({
         {uniform ? (
           <dl className="project-card__quickfacts">
             <div><dt>문제</dt><dd>{cardSummary.problem}</dd></div>
-            <div><dt>역할</dt><dd>{cardSummary.role}</dd></div>
+            <div><dt>한 일</dt><dd>{cardSummary.role}</dd></div>
             <div><dt>결과</dt><dd>{cardSummary.result}</dd></div>
           </dl>
         ) : null}
         {compact && !uniform ? <p className="project-card__description">{project.description ?? project.problem}</p> : !compact ? (
           <div className="project-card__logic">
-            <div><span>Problem</span><p>{project.problem}</p></div>
-            <div><span>Decision</span><p>{project.decision}</p></div>
+            <div><span>문제</span><p>{project.problem}</p></div>
+            <div><span>판단</span><p>{project.decision}</p></div>
           </div>
         ) : null}
         {!uniform ? (
@@ -75,7 +75,7 @@ export function ProjectCard({
         {uniform ? (
           <div className="tag-list tag-list--supporting">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
         ) : null}
-        {project.detailPageEnabled ? <Link className="detail-link" to={detailPath}>더보기 <ArrowUpRight aria-hidden="true" size={17} /></Link> : null}
+        {project.detailPageEnabled ? <Link className="detail-link" to={detailPath}>자세히 <ArrowUpRight aria-hidden="true" size={17} /></Link> : null}
       </div>
     </article>
   );

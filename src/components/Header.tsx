@@ -2,10 +2,10 @@ import { useEffect, useRef, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 
 const navItems = [
-  { label: 'HOME', to: '/' },
-  { label: 'WORK', to: '/work' },
-  { label: 'ABOUT', to: '/about' },
-  { label: 'CONTACT', to: '/contact' },
+  { label: '홈', to: '/' },
+  { label: '프로젝트', to: '/work' },
+  { label: '소개', to: '/about' },
+  { label: '연락', to: '/contact' },
 ];
 
 export function Header() {

@@ -9,19 +9,19 @@ import '../styles/home-work.css';
 
 const heroEvidence = [
   {
-    title: '서비스 정책',
-    highlight: 'FO·BO·권한·상태값',
-    description: '고객 화면과 운영 화면의 정책, 상태, 예외 조건을 하나의 요구사항으로 연결했습니다.',
+    title: '정책 설계',
+    highlight: 'FO·BO / 권한 / 상태값',
+    description: '화면과 운영 기준을 함께 정의합니다.',
   },
   {
-    title: '출시와 품질관리',
-    highlight: 'WBS·RP·QA 시나리오',
-    description: '일정, 범위, QA 기준을 문서화해 개발·운영 담당자가 같은 기준으로 실행하게 했습니다.',
+    title: '출시 관리',
+    highlight: 'WBS / RP / QA',
+    description: '일정, 범위, 검수 기준을 맞춥니다.',
   },
   {
-    title: '교육 서비스 경험',
-    highlight: 'LMS·AIDT·Jira 협업',
-    description: '학습자와 운영자 관점의 화면정의, QA, 개발 협업을 교육 도메인에서 수행했습니다.',
+    title: '교육 도메인',
+    highlight: 'LMS / AIDT / Jira',
+    description: '학습자와 운영자 관점으로 기획합니다.',
   },
 ];
 
@@ -31,17 +31,17 @@ const projectCapabilityProof = {
   'printbank-npb': {
     title: 'PRINTBANK_CONVERSION',
     label: 'FO·BO 통합 기획',
-    description: '운영자 요구사항을 RP·WBS·QA 기준으로 구조화한 전면 개편 경험',
+    description: '운영 요구를 RP·WBS·QA 기준으로 구조화',
   },
   'magic-ecole': {
     title: 'Magic Ecole LMS',
     label: '교육 SaaS 구조 설계',
-    description: '역할·권한과 콘텐츠 재사용 구조를 설계한 LMS 기획 경험',
+    description: '역할·권한과 콘텐츠 재사용 구조 설계',
   },
   'visang-aidt': {
     title: '비상교육 AI 디지털교과서',
     label: '교육 서비스 QA',
-    description: '교사 사용 상황과 공공 QA 기준을 기능 문서와 검증 흐름으로 연결한 경험',
+    description: '교사 사용 상황을 기능 문서와 검증 기준으로 연결',
   },
 } as const;
 
@@ -57,13 +57,13 @@ export function PortfolioHomePage() {
       <main className="home-main">
         <section className="home-hero" aria-labelledby="home-hero-title">
           <div className="home-hero__content">
-            <p className="eyebrow">Service Planning</p>
+            <p className="eyebrow">서비스 기획자</p>
             <h1 id="home-hero-title">
-              사용자 문제를 구조화하고,
-              <span> 서비스로 해결하는 서비스 기획자 김부경입니다.</span>
+              문제를 구조화하고
+              <span> 실행 기준으로 연결합니다.</span>
             </h1>
             <p className="home-hero__summary">
-              웹 서비스의 FO·BO 기획부터 운영정책, 예외사항, 일정·QA 관리까지 연결해 온 2년 9개월 경력의 서비스 기획자입니다.
+              FO·BO 기획, 운영정책, 일정·QA를 다룬 2년 9개월 경력의 서비스 기획자 김부경입니다.
             </p>
 
             <div className="hero-evidence" aria-label="제품 경험 핵심 근거">
@@ -92,8 +92,8 @@ export function PortfolioHomePage() {
 
         <section className="home-section">
           <SectionTitle
-            eyebrow="Works"
-            title="서비스 기획 직무 역량을 보여주는 대표 프로젝트"
+            eyebrow="대표 프로젝트"
+            title="서비스 기획 역량 3가지"
           />
           <div className="compact-grid home-featured-grid">
             {representativeProjects.map((project) => (
@@ -110,11 +110,11 @@ export function PortfolioHomePage() {
         </section>
 
         <section className="home-about">
-          <p className="eyebrow">About</p>
+          <p className="eyebrow">소개</p>
           <h2>
-            사용자 문제와 운영 기준이 어긋나는 지점을 찾아
+            문제, 정책, 실행 기준을
             <br />
-            서비스 정책과 실행 기준으로 연결합니다.
+            한 흐름으로 정리합니다.
           </h2>
           <div>
             {briefPrinciples.map((item, index) => (
@@ -125,7 +125,7 @@ export function PortfolioHomePage() {
             ))}
           </div>
           <Link className="detail-link" to="/about">
-            About 김부경 <ArrowRight aria-hidden="true" size={17} />
+            소개 보기 <ArrowRight aria-hidden="true" size={17} />
           </Link>
         </section>
       </main>
@@ -142,7 +142,7 @@ function SectionTitle({ eyebrow, title }: { eyebrow: string; title: string }) {
         <h2>{title}</h2>
       </div>
       <Link to="/work">
-        전체 프로젝트 <ArrowRight aria-hidden="true" size={17} />
+        전체 보기 <ArrowRight aria-hidden="true" size={17} />
       </Link>
     </div>
   );
