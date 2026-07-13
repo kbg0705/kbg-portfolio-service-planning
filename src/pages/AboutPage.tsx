@@ -59,7 +59,7 @@ export function AboutPage() {
             </h2>
           </div>
           <div className="capability-grid">
-            {profile.capabilities.map((item, index) => (
+            {profile.capabilities.slice(0, 3).map((item, index) => (
               <article key={item.title}>
                 <span>{String(index + 1).padStart(2, '0')}</span>
                 <h3>{item.title}</h3>
