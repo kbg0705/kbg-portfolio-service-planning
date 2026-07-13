@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import type { ProjectImage } from '../../types/project';
 
-function resolveAssetPath(src: string) {
+export function resolveAssetPath(src: string) {
   if (/^(https?:)?\/\//.test(src) || src.startsWith('data:')) return src;
   const base = import.meta.env.BASE_URL.endsWith('/') ? import.meta.env.BASE_URL : `${import.meta.env.BASE_URL}/`;
   return `${base}${src.replace(/^\/+/, '')}`;

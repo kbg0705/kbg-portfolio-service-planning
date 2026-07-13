@@ -1,7 +1,7 @@
 import { ChevronLeft, ChevronRight, X } from 'lucide-react';
 import { useEffect, useRef } from 'react';
 import type { ProjectImage } from '../../types/project';
-import { ImagePlaceholder } from './ImagePlaceholder';
+import { resolveAssetPath } from './ImagePlaceholder';
 
 export function ImageModal({
   images,
@@ -51,8 +51,9 @@ export function ImageModal({
     <div className="image-modal" role="presentation" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <div className="image-modal__dialog" role="dialog" aria-modal="true" aria-label={image.caption} tabIndex={-1} ref={dialogRef}>
         <button className="icon-button image-modal__close" type="button" onClick={onClose} aria-label="이미지 닫기"><X size={18} /></button>
-        <ImagePlaceholder image={image} />
-        <p>{image.caption}</p>
+        <div className="image-modal__image">
+          <img src={resolveAssetPath(image.src!)} alt={image.alt} />
+        </div>
         <div className="image-modal__navigation">
           <button className="secondary-action" type="button" onClick={() => onMove((index - 1 + images.length) % images.length)}><ChevronLeft size={17} /> 이전</button>
           <span>{index + 1} / {images.length}</span>
