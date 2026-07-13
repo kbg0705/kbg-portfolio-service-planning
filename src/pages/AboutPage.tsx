@@ -50,13 +50,9 @@ export function AboutPage() {
         </section>
 
         <section className="about-section">
-          <div className="about-section__heading about-section__heading--compact">
+          <div className="about-section__heading">
             <p className="eyebrow">역량</p>
-            <h2>
-              서비스 기획
-              <br />
-              실행 역량
-            </h2>
+            <h2>서비스 기획 실행 역량</h2>
           </div>
           <div className="capability-grid">
             {profile.capabilities.slice(0, 3).map((item, index) => (

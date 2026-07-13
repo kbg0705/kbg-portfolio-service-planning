@@ -310,17 +310,15 @@
 }
 
 .about-section__heading{
-  margin-bottom:34px;
-}
-
-.about-section__heading--compact{
-  grid-template-columns:120px minmax(0,420px);
+  grid-template-columns:120px minmax(0,1fr);
   gap:28px;
   align-items:start;
+  margin-bottom:34px;
 }
 
 .about-section__heading h2{
   font-size:34px;
+  white-space:nowrap;
 }
 
 .career-item{
@@ -463,6 +461,15 @@
 }
 
 @media (max-width:640px){
+  .about-section__heading{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .about-section__heading h2{
+    white-space:normal;
+  }
+
   .capability-grid,
   .about-records,
   .career-item{
