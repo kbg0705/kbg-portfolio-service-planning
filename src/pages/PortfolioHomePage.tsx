@@ -28,19 +28,10 @@ const heroEvidence = [
 
 const homeWorkOrder = ['printbank-npb', 'magic-ecole', 'visang-aidt'];
 
-const projectCapabilityProof = {
-  'printbank-npb': {
-    title: 'PRINTBANK_CONVERSION',
-    label: 'FO·BO 통합 기획',
-  },
-  'magic-ecole': {
-    title: 'Magic Ecole LMS',
-    label: '교육 SaaS 구조 설계',
-  },
-  'visang-aidt': {
-    title: '비상교육 AI 디지털교과서',
-    label: '교육 서비스 QA',
-  },
+const projectDisplayTitle = {
+  'printbank-npb': 'PRINTBANK_CONVERSION',
+  'magic-ecole': 'Magic Ecole LMS',
+  'visang-aidt': '비상교육 AI 디지털교과서',
 } as const;
 
 export function PortfolioHomePage() {
@@ -102,8 +93,7 @@ export function PortfolioHomePage() {
                     <ProjectCard
                       compact
                       uniform
-                      capabilityProof={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]}
-                      displayTitle={projectCapabilityProof[project.slug as keyof typeof projectCapabilityProof]?.title}
+                      displayTitle={projectDisplayTitle[project.slug as keyof typeof projectDisplayTitle]}
                       project={project}
                     />
                   </div>

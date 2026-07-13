@@ -3,28 +3,6 @@
   grid-template-rows:auto auto auto auto 1fr;
 }
 
-.work-grid .project-card__capability,
-.home-featured-grid .project-card__capability{
-  display:grid;
-  gap:0;
-  min-height:0;
-  margin:2px 0 8px;
-  padding:0;
-  border:0;
-}
-
-.work-grid .project-card__capability strong,
-.home-featured-grid .project-card__capability strong{
-  display:block;
-  overflow:hidden;
-  color:var(--p-accent);
-  font-size:14px;
-  font-weight:850;
-  line-height:1.35;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
 .work-grid .tag-list--supporting,
 .home-featured-grid .tag-list--supporting{
   align-self:start;

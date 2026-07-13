@@ -3,21 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import type { Project } from '../types/project';
 import { resolveAssetPath } from './common/ImagePlaceholder';
 
-type CapabilityProof = {
-  label: string;
-};
-
 export function ProjectCard({
   project,
   compact = false,
   uniform = false,
-  capabilityProof,
   displayTitle,
 }: {
   project: Project;
   compact?: boolean;
   uniform?: boolean;
-  capabilityProof?: CapabilityProof;
   displayTitle?: string;
 }) {
   const navigate = useNavigate();
@@ -50,11 +44,6 @@ export function ProjectCard({
       <div className="project-card__content">
         <p className="project-card__category">{project.category.join(' / ')}</p>
         <h3>{displayTitle ?? project.title}</h3>
-        {capabilityProof ? (
-          <div className="project-card__capability">
-            <strong>{capabilityProof.label}</strong>
-          </div>
-        ) : null}
         {uniform ? (
           <div className="tag-list tag-list--supporting">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
         ) : null}

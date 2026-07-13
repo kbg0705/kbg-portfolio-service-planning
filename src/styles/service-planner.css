@@ -287,20 +287,6 @@
   line-height:1.55;
 }
 
-.work-grid .project-card__capability,
-.home-featured-grid .project-card__capability{
-  gap:6px;
-  min-height:0;
-  margin:2px 0 8px;
-  padding:0;
-  border:0;
-}
-
-.work-grid .project-card__capability strong,
-.home-featured-grid .project-card__capability strong{
-  font-size:15px;
-}
-
 .work-grid .tag-list--supporting,
 .home-featured-grid .tag-list--supporting{
   min-height:0;
