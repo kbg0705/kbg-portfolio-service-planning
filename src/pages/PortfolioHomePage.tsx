@@ -127,9 +127,7 @@ export function PortfolioHomePage() {
         <section className="home-about">
           <p className="eyebrow">소개</p>
           <h2>
-            문제, 정책, 실행 기준을
-            <br />
-            한 흐름으로 정리합니다.
+            문제, 정책, 실행 기준을 한 흐름으로 정리합니다.
           </h2>
           <div>
             {briefPrinciples.map((item, index) => (

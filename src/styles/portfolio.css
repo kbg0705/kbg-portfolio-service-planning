@@ -474,10 +474,11 @@ button.image-placeholder.has-image{
 }
 
 .home-hero h1{
-  max-width:1040px;
+  max-width:none;
   margin:18px 0 20px;
-  font-size:clamp(44px,4.6vw,64px);
+  font-size:clamp(36px,3.7vw,48px);
   line-height:1.12;
+  white-space:nowrap;
   word-break:keep-all;
 }
 
@@ -612,6 +613,7 @@ button.image-placeholder.has-image{
 
   .home-hero h1{
     font-size:clamp(38px,6.2vw,52px);
+    white-space:normal;
   }
 
   .hero-evidence{

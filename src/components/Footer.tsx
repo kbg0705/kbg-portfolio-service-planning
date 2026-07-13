@@ -7,9 +7,7 @@ export function Footer({ email }: { email: string }) {
       <div className="footer-copy">
         <p className="eyebrow">함께 일하기</p>
         <h2>
-          사용자 흐름과 운영 정책을
-          <br />
-          함께 설계합니다.
+          사용자 흐름과 운영 정책을 함께 설계합니다.
         </h2>
         <p>서비스 기획자 김부경입니다.</p>
         <p className="footer-built">김부경이 기획하고 Codex로 구현·개선했습니다.</p>
