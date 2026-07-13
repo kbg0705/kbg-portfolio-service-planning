@@ -1,7 +1,10 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { projectDetails } from '../data/projectDetails';
 import type { Project } from '../types/project';
-import { ImagePlaceholder } from './common/ImagePlaceholder';
+import type { ProjectImage } from '../types/project';
+import { resolveAssetPath } from './common/ImagePlaceholder';
 
 type CapabilityProof = {
   label: string;
@@ -22,7 +25,8 @@ export function ProjectCard({
   displayTitle?: string;
 }) {
   const detailPath = `/projects/${project.slug}`;
-  const hasThumbnail = Boolean(project.thumbnail?.src);
+  const slides = useProjectSlides(project);
+  const hasThumbnail = slides.length > 0;
   const cardSummary = project.cardSummary ?? {
     problem: project.problem,
     role: project.role,
@@ -33,8 +37,8 @@ export function ProjectCard({
   return (
     <article className={`project-card ${uniform ? 'project-card--work' : `project-card--${project.tier}`}${compact ? ' is-compact' : ''}`}>
       <div className="project-card__meta"><span>{String(project.order).padStart(2, '0')}</span><p>{project.service}</p></div>
-      {hasThumbnail && project.thumbnail ? (
-        <ImagePlaceholder image={project.thumbnail} to={project.detailPageEnabled ? detailPath : undefined} />
+      {hasThumbnail ? (
+        <ProjectThumbnailSlider slides={slides} to={project.detailPageEnabled ? detailPath : undefined} title={displayTitle ?? project.title} />
       ) : uniform ? (
         <div className="project-card__media-placeholder" aria-hidden="true">
           <span>{String(project.order).padStart(2, '0')}</span>
@@ -78,5 +82,59 @@ export function ProjectCard({
         {project.detailPageEnabled ? <Link className="detail-link" to={detailPath}>자세히 <ArrowUpRight aria-hidden="true" size={17} /></Link> : null}
       </div>
     </article>
+  );
+}
+
+function useProjectSlides(project: Project) {
+  return useMemo(() => {
+    const detail = projectDetails.find((item) => item.slug === project.slug);
+    const candidates = [
+      project.thumbnail,
+      detail?.feedbackBacklog?.image,
+      ...(detail?.decisions.map((item) => item.image) ?? []),
+      ...(detail?.artifacts ?? []),
+      ...(detail?.images ?? []),
+    ];
+    const seen = new Set<string>();
+    return candidates.filter((image): image is ProjectImage => {
+      if (!image?.src || seen.has(image.src)) return false;
+      seen.add(image.src);
+      return true;
+    }).slice(0, 4);
+  }, [project]);
+}
+
+function ProjectThumbnailSlider({ slides, title, to }: { slides: ProjectImage[]; title: string; to?: string }) {
+  const [index, setIndex] = useState(0);
+  const canSlide = slides.length > 1;
+  const next = (direction: -1 | 1) => setIndex((current) => (current + direction + slides.length) % slides.length);
+
+  const imageTrack = (
+    <div className="project-thumb-slider__track" style={{ transform: `translateX(-${index * 100}%)` }}>
+      {slides.map((slide) => (
+        <div className="project-thumb-slider__slide" key={slide.src}>
+          <img src={resolveAssetPath(slide.src!)} alt={slide.alt} loading="lazy" />
+        </div>
+      ))}
+    </div>
+  );
+
+  return (
+    <div className="project-thumb-slider" aria-label={`${title} 썸네일`}>
+      {to ? <Link className="project-thumb-slider__link" to={to} aria-label={`${title} 상세 보기`}>{imageTrack}</Link> : imageTrack}
+      {canSlide ? (
+        <>
+          <button className="project-thumb-slider__button project-thumb-slider__button--prev" type="button" onClick={() => next(-1)} aria-label="이전 썸네일">
+            <ChevronLeft size={16} aria-hidden="true" />
+          </button>
+          <button className="project-thumb-slider__button project-thumb-slider__button--next" type="button" onClick={() => next(1)} aria-label="다음 썸네일">
+            <ChevronRight size={16} aria-hidden="true" />
+          </button>
+          <div className="project-thumb-slider__dots" aria-hidden="true">
+            {slides.map((slide, dotIndex) => <span className={dotIndex === index ? 'is-active' : undefined} key={slide.src} />)}
+          </div>
+        </>
+      ) : null}
+    </div>
   );
 }
