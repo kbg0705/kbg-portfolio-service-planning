@@ -239,11 +239,11 @@ const affiliations: Record<string, string> = {
   'magic-ecole': '(주)매직에꼴',
   'tax-canvas': 'Tax Canvas',
   'print-studio': '(주)프린트뱅크',
-  'print-decision-support': '이화여자대학교 디자인대학원',
+  'print-decision-support': '학업 프로젝트',
   'gachon-metaverse-campus': '가천대학교 메타버스 홍보단',
   'visang-aidt': '비상교육',
   'smooth-route': '팁스터 연합동아리',
-  'my-ai-service-business': '이화여자대학교 디자인대학원',
+  'my-ai-service-business': '학업 프로젝트',
   'picar-ar-sns': '가천대학교 졸업 프로젝트',
 };
 

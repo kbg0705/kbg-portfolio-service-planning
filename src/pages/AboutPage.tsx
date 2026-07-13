@@ -22,7 +22,7 @@ export function AboutPage() {
           <div><strong>3</strong><span>서비스 조직 경험</span></div>
           <div><strong>14</strong><span>Sprint 운영</span></div>
           <div><strong>4.29</strong><span>학부 GPA / 4.5</span></div>
-          <div><strong>2026</strong><span>서비스디자인 석사과정</span></div>
+          <div><strong>3</strong><span>직무 관련 자격</span></div>
         </section>
 
         <section className="about-section">
@@ -52,7 +52,7 @@ export function AboutPage() {
         <section className="about-section">
           <div className="about-section__heading">
             <p className="eyebrow">How I work</p>
-            <h2>링커리어 아카데미 업무와 맞닿은 네 가지 실행 역량</h2>
+            <h2>서비스 기획 직무와 연결되는 네 가지 실행 역량</h2>
           </div>
           <div className="capability-grid">
             {profile.capabilities.map((item, index) => (

@@ -93,7 +93,7 @@ export function PortfolioHomePage() {
         <section className="home-section">
           <SectionTitle
             eyebrow="Works"
-            title="링커리어 아카데미 포지션에 맞춘 대표 프로젝트"
+            title="서비스 기획 직무 역량을 보여주는 대표 프로젝트"
           />
           <div className="compact-grid home-featured-grid">
             {representativeProjects.map((project) => (

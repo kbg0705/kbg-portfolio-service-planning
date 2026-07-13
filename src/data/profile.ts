@@ -75,7 +75,6 @@ export const profile = {
     },
   ],
   education: [
-    { period: '2026.03 - 재학 중', name: '이화여자대학교 디자인대학원', detail: '서비스디자인 석사과정' },
     { period: '2020.03 - 2024.09', name: '가천대학교', detail: '소프트웨어 전공 · 4.29/4.5' },
   ],
   certifications: [
