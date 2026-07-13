@@ -500,7 +500,7 @@ const makeProjectDetail = (slug: string): ProjectDetail | undefined => {
       outcome: current.impact.map((item) => `${item.value} ${item.label}`).join(', '),
     },
     evidence,
-    keyQuestion: `${current.problem.replace(/[.!?]$/, '')} 문제를 어떤 제품 구조와 실행 기준으로 해결할 수 있을까?`,
+    keyQuestion: current.problem,
     decisions: [
       {
         number: '01',
