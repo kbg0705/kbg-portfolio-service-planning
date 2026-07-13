@@ -76,10 +76,10 @@ export function PortfolioHomePage() {
 
         <section className="home-section">
           <SectionTitle
-            eyebrow="서비스 기획 실행 역량"
-            title="서비스 기획 실행 역량 3가지"
+            eyebrow="주요 프로젝트"
+            title="주요 프로젝트 3가지"
           />
-          <div className="work-showcase" aria-label="서비스 기획 실행 역량 슬라이드">
+          <div className="work-showcase" aria-label="주요 프로젝트 carousel">
             <div className="work-showcase__viewport">
               <div className="work-showcase__track" style={{ transform: `translateX(-${activeWorkIndex * 100}%)` }}>
                 {representativeProjects.map((project, index) => (
@@ -93,14 +93,14 @@ export function PortfolioHomePage() {
                 ))}
               </div>
             </div>
-            <div className="work-showcase__controls" aria-label="서비스 기획 실행 역량 이동">
-              <button type="button" onClick={() => moveWork(-1)} aria-label="이전 서비스 기획 실행 역량">
+            <div className="work-showcase__controls" aria-label="주요 프로젝트 이동">
+              <button type="button" onClick={() => moveWork(-1)} aria-label="이전 주요 프로젝트">
                 <ChevronLeft size={18} aria-hidden="true" />
               </button>
               <div className="work-showcase__dots" aria-hidden="true">
                 {representativeProjects.map((project, index) => <span className={index === activeWorkIndex ? 'is-active' : undefined} key={project.slug} />)}
               </div>
-              <button type="button" onClick={() => moveWork(1)} aria-label="다음 서비스 기획 실행 역량">
+              <button type="button" onClick={() => moveWork(1)} aria-label="다음 주요 프로젝트">
                 <ChevronRight size={18} aria-hidden="true" />
               </button>
             </div>
