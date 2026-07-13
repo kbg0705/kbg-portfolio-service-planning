@@ -63,10 +63,7 @@ export function PortfolioHomePage() {
         <section className="home-hero" aria-labelledby="home-hero-title">
           <div className="home-hero__content">
             <p className="eyebrow">서비스 기획자</p>
-            <h1 id="home-hero-title">
-              문제를 구조화하고
-              <span> 실행 기준으로 연결합니다.</span>
-            </h1>
+            <h1 id="home-hero-title">문제를 구조화하고 실행 기준으로 연결합니다.</h1>
             <p className="home-hero__summary">
               FO·BO 기획, 운영정책, 일정·QA를 다룬 2년 9개월 경력의 서비스 기획자 김부경입니다.
             </p>
@@ -98,7 +95,7 @@ export function PortfolioHomePage() {
         <section className="home-section">
           <SectionTitle
             eyebrow="대표 프로젝트"
-            title="서비스 기획 역량 3가지"
+            title="대표 프로젝트 3가지"
           />
           <div className="work-showcase" aria-label="대표 프로젝트 슬라이드">
             <div className="work-showcase__viewport">
