@@ -2,6 +2,7 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import PortfolioApp from './PortfolioApp';
 import './styles/portfolio.css';
+import './styles/service-planner.css';
 
 const redirectPath = new URLSearchParams(window.location.search).get('redirect');
 if (redirectPath) {

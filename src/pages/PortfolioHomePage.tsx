@@ -4,51 +4,56 @@ import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
 import { ProjectCard } from '../components/ProjectCard';
 import { profile } from '../data/profile';
-import { featuredProjects } from '../data/projects';
+import { projects } from '../data/projects';
 import '../styles/home-work.css';
 
 const heroEvidence = [
   {
-    title: '역할과 권한 정책',
-    highlight: 'Custom Role·상태·예외 기준',
-    description: '사용자 역할과 운영 권한을 분리해 확장 가능한 서비스 정책으로 정리했습니다.',
+    title: '서비스 정책',
+    highlight: 'FO·BO·권한·상태값',
+    description: '고객 화면과 운영 화면의 정책, 상태, 예외 조건을 하나의 요구사항으로 연결했습니다.',
   },
   {
-    title: '콘텐츠와 운영 구조',
-    highlight: '콘텐츠 재사용·FO/BO 연계',
-    description: '콘텐츠 생산, 노출, 주문, CS가 이어지는 앞단과 뒷단의 흐름을 함께 설계했습니다.',
+    title: '출시와 품질관리',
+    highlight: 'WBS·RP·QA 시나리오',
+    description: '일정, 범위, QA 기준을 문서화해 개발·운영 담당자가 같은 기준으로 실행하게 했습니다.',
   },
   {
-    title: '사용자 상태 검증',
-    highlight: 'GA4·VOC·QA 시나리오',
-    description: '사용자의 탐색 상태와 운영자의 처리 상태를 지표와 시나리오로 검증했습니다.',
+    title: '교육 서비스 경험',
+    highlight: 'LMS·AIDT·Jira 협업',
+    description: '학습자와 운영자 관점의 화면정의, QA, 개발 협업을 교육 도메인에서 수행했습니다.',
   },
 ];
 
-const homeWorkOrder = ['magic-ecole', 'printbank-npb', 'printbank-main'];
+const homeWorkOrder = ['printbank-npb', 'magic-ecole', 'visang-aidt', 'print-studio'];
 
 const projectCapabilityProof = {
-  'magic-ecole': {
-    title: '교육 SaaS LMS 리뉴얼',
-    label: '플랫폼 구조 설계',
-    description: '역할·권한과 콘텐츠 구조를 설계한 플랫폼 기획 경험',
-  },
   'printbank-npb': {
-    title: 'New Printbank 신규 사이트 구축',
-    label: '신규 서비스 구축',
-    description: 'FO·BO 전체 정책과 운영 프로세스를 연결한 서비스 구축 경험',
+    title: 'PRINTBANK_CONVERSION',
+    label: 'FO·BO 통합 기획',
+    description: '운영자 요구사항을 RP·WBS·QA 기준으로 구조화한 전면 개편 경험',
   },
-  'printbank-main': {
-    title: 'Printbank 메인페이지 리뉴얼',
-    label: '데이터 기반 개선',
-    description: 'GA4 분석으로 평균 참여시간을 1.7배 높인 데이터 기반 개선 경험',
+  'magic-ecole': {
+    title: 'Magic Ecole LMS',
+    label: '교육 SaaS 구조 설계',
+    description: '역할·권한과 콘텐츠 재사용 구조를 설계한 LMS 기획 경험',
+  },
+  'visang-aidt': {
+    title: '비상교육 AI 디지털교과서',
+    label: '교육 서비스 QA',
+    description: '교사 사용 상황과 공공 QA 기준을 기능 문서와 검증 흐름으로 연결한 경험',
+  },
+  'print-studio': {
+    title: 'PrintStudio 신규 구축',
+    label: '운영 효율화',
+    description: '주문 오류와 반복 업무를 파일 가이드와 시스템 연동으로 줄인 구축 경험',
   },
 } as const;
 
 export function PortfolioHomePage() {
   const representativeProjects = homeWorkOrder
-    .map((slug) => featuredProjects.find((project) => project.slug === slug))
-    .filter((project): project is (typeof featuredProjects)[number] => Boolean(project));
+    .map((slug) => projects.find((project) => project.slug === slug))
+    .filter((project): project is (typeof projects)[number] => Boolean(project));
   const briefPrinciples = profile.principles.slice(0, 3);
 
   return (
@@ -59,11 +64,11 @@ export function PortfolioHomePage() {
           <div className="home-hero__content">
             <p className="eyebrow">Service Planning</p>
             <h1 id="home-hero-title">
-              사용자와 운영자가 만나는 서비스의 흐름을,
-              <span> 제품 구조로 정리하는 김부경입니다.</span>
+              사용자 문제를 구조화하고,
+              <span> 서비스로 해결하는 서비스 기획자 김부경입니다.</span>
             </h1>
             <p className="home-hero__summary">
-              역할·권한, 콘텐츠 구조, 사용자 상태, 운영 정책, FO·BO 연계를 기획하고 개발·운영·QA와 끝까지 맞춰본 경험을 담았습니다.
+              웹 서비스의 FO·BO 기획부터 운영정책, 예외사항, 일정·QA 관리까지 연결해 온 2년 9개월 경력의 서비스 기획자입니다.
             </p>
 
             <div className="hero-evidence" aria-label="제품 경험 핵심 근거">
@@ -93,7 +98,7 @@ export function PortfolioHomePage() {
         <section className="home-section">
           <SectionTitle
             eyebrow="Works"
-            title="대표 작업 3가지"
+            title="링커리어 아카데미 포지션에 맞춘 대표 프로젝트"
           />
           <div className="compact-grid home-featured-grid">
             {representativeProjects.map((project) => (
@@ -112,9 +117,9 @@ export function PortfolioHomePage() {
         <section className="home-about">
           <p className="eyebrow">About</p>
           <h2>
-            사용자 경험과 운영 기준이 어긋나는 지점을 찾아
+            사용자 문제와 운영 기준이 어긋나는 지점을 찾아
             <br />
-            제품 정책으로 연결합니다.
+            서비스 정책과 실행 기준으로 연결합니다.
           </h2>
           <div>
             {briefPrinciples.map((item, index) => (

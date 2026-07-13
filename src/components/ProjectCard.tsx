@@ -23,6 +23,12 @@ export function ProjectCard({
 }) {
   const detailPath = `/projects/${project.slug}`;
   const hasThumbnail = Boolean(project.thumbnail?.src);
+  const cardSummary = project.cardSummary ?? {
+    problem: project.problem,
+    role: project.role,
+    result: project.impact[0] ? `${project.impact[0].value} ${project.impact[0].label}` : project.status,
+  };
+  const visibleTags = project.tags.slice(0, 3);
 
   return (
     <article className={`project-card ${uniform ? 'project-card--work' : `project-card--${project.tier}`}${compact ? ' is-compact' : ''}`}>
@@ -45,6 +51,13 @@ export function ProjectCard({
           </div>
         ) : null}
         <p className="project-card__tagline">{project.tagline}</p>
+        {uniform ? (
+          <dl className="project-card__quickfacts">
+            <div><dt>문제</dt><dd>{cardSummary.problem}</dd></div>
+            <div><dt>역할</dt><dd>{cardSummary.role}</dd></div>
+            <div><dt>결과</dt><dd>{cardSummary.result}</dd></div>
+          </dl>
+        ) : null}
         {compact && !uniform ? <p className="project-card__description">{project.description ?? project.problem}</p> : !compact ? (
           <div className="project-card__logic">
             <div><span>Problem</span><p>{project.problem}</p></div>
@@ -56,13 +69,13 @@ export function ProjectCard({
             <div className="outcome-inline">
               {project.impact.slice(0, compact ? 2 : 3).map((item) => <span key={`${item.value}-${item.label}`} data-type={item.type}><strong>{item.value}</strong>{item.label}</span>)}
             </div>
-            <div className="tag-list">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
+            <div className="tag-list">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
           </>
         ) : null}
-        {uniform && capabilityProof ? (
-          <div className="tag-list tag-list--supporting">{project.tags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
+        {uniform ? (
+          <div className="tag-list tag-list--supporting">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
         ) : null}
-        {project.detailPageEnabled ? <Link className="detail-link" to={detailPath}>더보기 <ArrowUpRight size={17} /></Link> : null}
+        {project.detailPageEnabled ? <Link className="detail-link" to={detailPath}>더보기 <ArrowUpRight aria-hidden="true" size={17} /></Link> : null}
       </div>
     </article>
   );

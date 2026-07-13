@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useLayoutEffect, useMemo, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { Footer } from '../components/Footer';
 import { Header } from '../components/Header';
@@ -15,6 +15,20 @@ export function ProjectCasePage() {
   const detail = findProjectDetail(slug);
   const [active, setActive] = useState<string>('summary');
   const [modalIndex, setModalIndex] = useState<number | null>(null);
+
+  useLayoutEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'auto' });
+  }, [slug]);
+
+  useEffect(() => {
+    if (!project) return undefined;
+    const frame = window.requestAnimationFrame(() => window.scrollTo({ top: 0, behavior: 'auto' }));
+    const timer = window.setTimeout(() => window.scrollTo({ top: 0, behavior: 'auto' }), 250);
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+    };
+  }, [project]);
 
   const images = useMemo<ProjectImage[]>(() => {
     if (!project || !detail) return [];
@@ -42,7 +56,7 @@ export function ProjectCasePage() {
 
   useEffect(() => {
     if (!project) return;
-    document.title = '김부경 | 포트폴리오';
+    document.title = `${project.title} | 김부경 서비스 기획자 포트폴리오`;
     const description = project.tagline;
     let meta = document.querySelector<HTMLMetaElement>('meta[name="description"]');
     if (!meta) {

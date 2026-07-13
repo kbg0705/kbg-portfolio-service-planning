@@ -18,15 +18,15 @@ export const detailSections = [
 ] as const;
 
 const sectionLabels: Record<(typeof detailSections)[number], string> = {
-  summary: '핵심 요약',
-  context: '문제 맥락',
-  evidence: '발견 근거',
-  'feedback-backlog': '백로그',
-  decisions: '제품 결정',
+  summary: '요약',
+  context: 'Problem',
+  evidence: 'Evidence',
+  'feedback-backlog': '구조화',
+  decisions: 'Decision',
   artifacts: '산출물',
-  collaboration: '협업',
-  outcomes: '성과',
-  learnings: '회고',
+  collaboration: 'Execution',
+  outcomes: 'Result',
+  learnings: 'Learning',
 };
 
 const outcomeLabels = {
@@ -89,7 +89,7 @@ export function ProjectDetailView({
         </nav>
 
         <div className="detail-content">
-          <Section id="summary" eyebrow="Case Summary" title="문제에서 결과까지">
+          <Section id="summary" eyebrow="Case Summary" title="서비스 기획 의사결정 요약">
             <div className="case-summary">
               <article className="case-summary__problem"><span>Problem</span><p>{detail.executiveSummary.problem}</p></article>
               <article><span>Decision</span><p>{detail.executiveSummary.decision}</p></article>
@@ -97,11 +97,16 @@ export function ProjectDetailView({
             </div>
           </Section>
 
-          <Section id="context" eyebrow="Why this problem" title="제품이 풀어야 했던 구조적 문제">
+          <Section id="context" eyebrow="Problem" title="어떤 불확실성을 해결했는가">
             <div className="reading-column"><p>{detail.overview}</p><p>{detail.context}</p></div>
+            {detail.problemFlow ? (
+              <div className="process-strip" aria-label="문제 구조 도식">
+                {detail.problemFlow.map((item, index) => <span key={item}>{String(index + 1).padStart(2, '0')} {item}</span>)}
+              </div>
+            ) : null}
           </Section>
 
-          <Section id="evidence" eyebrow="Evidence" title="문제를 발견한 근거">
+          <Section id="evidence" eyebrow="Evidence" title="어떤 근거로 문제를 정의했는가">
             <div className="evidence-grid">
               {detail.evidence.map((item, index) => <article key={item.label}><span>{String(index + 1).padStart(2, '0')}</span><h3>{item.label}</h3><p>{item.description}</p></article>)}
             </div>
@@ -130,7 +135,12 @@ export function ProjectDetailView({
 
           <blockquote className="key-question"><span>Key Question</span><p>{detail.keyQuestion}</p></blockquote>
 
-          <Section id="decisions" eyebrow="Product Decisions" title="근거를 제품 결정으로 전환한 과정">
+          <Section id="decisions" eyebrow="Decision" title="무엇을 기준으로 우선순위를 정했는가">
+            {detail.decisionCriteria ? (
+              <div className="priority-matrix" aria-label="우선순위 판단 기준">
+                {detail.decisionCriteria.map((item, index) => <span key={item}>{String(index + 1).padStart(2, '0')} {item}</span>)}
+              </div>
+            ) : null}
             <div className="decision-list">
               {detail.decisions.map((item) => (
                 <article className="decision-item decision-item--renewed" key={item.number}>
@@ -140,7 +150,7 @@ export function ProjectDetailView({
                     <div className="decision-takeaway"><span>Decision</span><p>{item.decision}</p></div>
                     <div className="decision-flow">
                       <Fact label="Evidence" text={item.evidence} />
-                      <Fact label="Product Specification" text={item.specification} />
+                      <Fact label="Service Specification" text={item.specification} />
                       <Fact label="Effect" text={item.effect} />
                     </div>
                   </div>
@@ -158,17 +168,22 @@ export function ProjectDetailView({
             </Section>
           ) : null}
 
-          <Section id="collaboration" eyebrow="Collaboration & Delivery" title="협업과 실행">
+          <Section id="collaboration" eyebrow="Execution" title="팀이 실행할 수 있도록 어떻게 연결했는가">
+            {detail.executionFlow ? (
+              <div className="execution-flow" aria-label="요구사항 실행 연결 구조">
+                {detail.executionFlow.map((item) => <span key={item}>{item}</span>)}
+              </div>
+            ) : null}
             <ol className="text-list">{detail.collaboration.map((item) => <li key={item}>{item}</li>)}</ol>
           </Section>
 
-          <Section id="outcomes" eyebrow="Outcome" title="성과를 유형별로 구분했습니다">
+          <Section id="outcomes" eyebrow="Result" title="무엇이 달라졌는가">
             <div className="outcome-grid">
               {detail.outcomes.map((item) => <article key={item.label} data-type={item.type}><span>{outcomeLabels[item.type]}</span><strong>{item.value}</strong><h3>{item.label}</h3><p>{item.description}</p></article>)}
             </div>
           </Section>
 
-          <Section id="learnings" eyebrow="What I learned" title="한계와 다음 검증">
+          <Section id="learnings" eyebrow="Learning" title="서비스 기획자로서 배운 점">
             <ul className="text-list">{detail.learnings.map((item) => <li key={item}>{item}</li>)}</ul>
           </Section>
 

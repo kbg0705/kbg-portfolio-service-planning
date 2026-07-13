@@ -6,24 +6,29 @@ export const featuredProjects: Project[] = [
     slug: 'printbank-npb',
     order: 1,
     tier: 'featured',
-    service: 'New Printbank Project',
+    service: 'Printbank Conversion',
     category: ['Product', 'E-commerce'],
-    title: 'New Printbank 제품 운영 체계 구축',
-    tagline: '사용자 화면과 운영 화면 사이의 상태·정책 공백을 제품 개선 체계로 전환했습니다.',
+    title: '프린트뱅크 신규 이커머스 개편',
+    tagline: '구두로 흩어진 운영 요구를 RP와 WBS로 구조화해 신규 이커머스의 실행 기준을 설계했습니다.',
     period: '2026.02–2026.06',
     role: '서비스 기획 · Product Manager',
     contribution: '문제 구조화 · 정책 설계 · 화면정의 · 개발 협의 · QA',
     status: '기획·개발·QA 병행',
     tools: ['Figma', 'Jira', 'Google Sheets', 'SQL/DB 구조 협의'],
-    tags: ['FO/BO', 'User Status', 'Operation Policy', 'Backlog'],
-    problem: '회원·주문·배송·CS 기능의 사용자 상태와 운영 처리 기준이 불명확해 운영자가 수작업으로 공백을 보완했습니다.',
-    decision: '운영 피드백을 FD 문제 정의와 RP 개선 과제로 구조화하고 상태·조건·예외·권한·우선순위를 정책으로 만들었습니다.',
+    tags: ['Problem Definition', 'FO·BO', 'Product Policy', 'WBS', 'PM'],
+    problem: '신규 인쇄 이커머스 구축 과정에서 상품·가격·회원·주문·출고 요구가 동시에 전달되어 개발 범위와 우선순위가 불명확했습니다.',
+    decision: '운영 요구를 RP 단위로 분류하고 선·후행 관계와 구현 가능성을 기준으로 WBS와 정책 문서에 연결했습니다.',
     impact: [
-      { value: 'FO·BO', label: '개선 과제 개발·QA 연결', description: '회원·주문·배송·CS 상태와 운영 권한', type: 'delivered' },
-      { value: 'One System', label: '문제와 개발 상태 관리 기준 통합', description: '운영·기획·개발 공통 정책', type: 'delivered' },
+      { value: 'RP', label: '운영 요구를 개발 과제로 전환', description: '상품·가격·회원·주문·출고 요구 구조화', type: 'delivered' },
+      { value: 'WBS', label: '범위와 일정 확인 기준 마련', description: '기획·개발·운영 공통 실행 계획', type: 'delivered' },
     ],
+    cardSummary: {
+      problem: '운영자 요구와 FO·BO 정책이 동시에 늘어나 개발 범위와 일정 기준이 불명확했습니다.',
+      role: '서비스 기획 · Product Manager로 RP, WBS, 정책, 화면정의, QA 기준을 연결했습니다.',
+      result: '운영 요구를 개발 과제로 구조화하고 일정·QA 관리 기준을 마련했습니다.',
+    },
     detailPageEnabled: true,
-    thumbnail: { ...image('cover', '비식별화된 제품 개선 시스템', '권장 비율 16:10 · FD·RP 백로그와 FO·BO 정책 연결을 보여주는 화면'), isConfidential: true },
+    thumbnail: { ...image('cover', '비식별화된 이커머스 실행 구조', '권장 비율 16:10 · 요구사항, RP, WBS, FO·BO 정책 연결을 보여주는 화면'), isConfidential: true },
   },
   {
     slug: 'printbank-main',
@@ -46,6 +51,11 @@ export const featuredProjects: Project[] = [
       { value: '1위', label: '전체 접속 페이지 순위', description: '메인페이지가 주문조회 페이지를 넘어 1위 달성', type: 'measured' },
       { value: 'Launch', label: '메인페이지 리뉴얼 출시', description: '배너·팝업·상담 진입 구조 개선', type: 'delivered' },
     ],
+    cardSummary: {
+      problem: '주문조회 중심 방문이 반복되고 메인 콘텐츠 탐색 성과가 낮았습니다.',
+      role: 'GA4 분석, 정보 우선순위, 화면 기획, 디자이너 협업을 맡았습니다.',
+      result: '평균 참여시간 1.7배 증가를 확인했습니다.',
+    },
     detailPageEnabled: true,
     thumbnail: image('cover', 'Printbank 메인페이지 리뉴얼', '권장 비율 16:10 · 배너, 팝업, 상담 진입 구조를 개선한 메인 화면'),
   },
@@ -70,6 +80,11 @@ export const featuredProjects: Project[] = [
       { value: '90%', label: '기획팀 업무 수행률', description: '준비 상태와 착수 기준 개선', type: 'measured' },
       { value: 'NIPA', label: '유망 SaaS 지원 사업 통과 기여', description: '외부 지원 선정', type: 'recognition' },
     ],
+    cardSummary: {
+      problem: '역할·권한과 콘텐츠 재사용 구조가 고정되어 운영 요구마다 추가 개발이 필요했습니다.',
+      role: '서비스 기획 · PO로 권한 정책, 콘텐츠 구조, 화면설계, Jira 기반 협업을 수행했습니다.',
+      result: '14개 Sprint 운영과 단계적 개발 착수 기준을 정리했습니다.',
+    },
     detailPageEnabled: true,
     thumbnail: image('cover', '권한과 콘텐츠 구조', '권장 비율 16:10 · 권한 매트릭스와 LMS 계층 구조를 보여주는 이미지'),
   },
@@ -117,6 +132,11 @@ export const featuredProjects: Project[] = [
       { value: '30%', label: '운영 처리시간 단축', description: '주문·파일 처리 자동화', type: 'measured' },
       { value: 'Launch', label: '신규 이커머스 출시', description: '명함 전문 주문 서비스', type: 'delivered' },
     ],
+    cardSummary: {
+      problem: '파일 오류 CS와 주문 정보 수작업 이관이 반복됐습니다.',
+      role: '주문 흐름, 파일 가이드, 운영 연동, UX 문구 기준을 기획했습니다.',
+      result: '주문 파일 가이드 이용률과 운영 처리시간 개선을 확인했습니다.',
+    },
     detailPageEnabled: true,
     thumbnail: image('cover', '주문과 파일 가이드 흐름', '권장 비율 16:10 · 사용자 주문 화면과 운영 연동 구조'),
   },
@@ -171,7 +191,7 @@ export const featuredProjects: Project[] = [
 ];
 
 export const compactProjects: Project[] = [
-  { slug: 'visang-aidt', order: 7, tier: 'compact', service: 'Visang AIDT', category: ['Product', 'SaaS'], title: 'AIDT 기반 인쇄 서비스 및 품질 관리', tagline: '공공 프로젝트의 인쇄 기능과 QA 산출물을 구현 가능한 수준으로 구체화했습니다.', period: '2024.07–2025.02', role: '서비스 기획 · QA', contribution: '기능 기획 · 기술검증 문서 작성 참여 · QA 자동화', status: '기획 및 품질 검증 참여', tools: ['Figma', 'Jira', 'Selenium'], tags: ['AIDT', 'Public Project', 'Documentation', 'QA'], problem: '디지털교과서의 출력 니즈와 반복 테스트를 안정적으로 지원할 구조가 필요했습니다.', decision: '인쇄 흐름과 문서 산출물을 정리하고 테스트케이스 기반 QA와 Selenium 자동화를 도입했습니다.', impact: [{ value: 'QA', label: '테스트케이스 및 자동화 도입', description: '절감 수치는 별도 주장하지 않음', type: 'delivered' }], detailPageEnabled: false, description: 'AI 디지털교과서 기반 인쇄 서비스 기획에 참여하고 공공기관 제출용 기술검증결과서와 사용자·운영 매뉴얼 작성에 참여했습니다.' },
+  { slug: 'visang-aidt', order: 7, tier: 'compact', service: 'Visang AIDT', category: ['Product', 'SaaS'], title: '비상교육 AI 디지털교과서 QA', tagline: '교사의 출력 니즈와 공공 QA 기준을 기능 요구사항과 검증 문서로 연결했습니다.', period: '2024.07–2025.02', role: '서비스 기획 · QA', contribution: '기능 기획 · 화면정의서 보완 · 기술검증 문서 작성 참여 · QA 자동화', status: '기획 및 품질 검증 참여', tools: ['Figma', 'Jira', 'Selenium'], tags: ['AIDT', 'QA', 'Jira'], problem: 'AI 디지털교과서 사용 상황에서 교사의 출력 니즈와 반복 테스트 기준을 함께 정의해야 했습니다.', decision: '사용 상황을 기준으로 인쇄 기능 우선순위를 정리하고 기능 문서, 매뉴얼, QA 시나리오로 검증 기준을 연결했습니다.', impact: [{ value: 'QA', label: '기능·문서·검증 기준 연결', description: '절감 수치는 별도 주장하지 않음', type: 'delivered' }], cardSummary: { problem: '교사 사용 상황과 공공 QA 기준을 기능 문서와 테스트 기준으로 연결해야 했습니다.', role: '서비스 기획 · QA로 화면정의서 보완, 기술검증 문서, Jira 기반 QA 협업에 참여했습니다.', result: '기능·문서·검증 기준을 연결한 QA 산출물을 정리했습니다.' }, detailPageEnabled: false, description: '교사의 출력 니즈를 사용 상황으로 정의하고 화면정의서, 기술검증 문서, QA 흐름으로 연결한 교육 서비스 프로젝트입니다.' },
   { slug: 'smooth-route', order: 8, tier: 'compact', service: 'SmoothRoute', category: ['AI & Search', 'Research'], title: 'AI·데이터 기반 대중교통 혼잡도 예측 UX', tagline: '혼잡 정보보다 사용자가 원하는 시간에 도착할 수 있는지를 먼저 보여줬습니다.', period: '2025.04–2025.05', role: '서비스 기획', contribution: '문제 정의 · PRD · UI · AI 기반 시선 검증', status: '프로토타입 검증', tools: ['Clueify', 'Creatie', 'Interview'], tags: ['AI UX', 'PRD', 'Heatmap', 'Experiment'], problem: '혼잡도 수치는 있었지만 사용자의 실제 질문인 도착 가능성에 답하지 못했습니다.', decision: '도착 가능 시간을 중심으로 UI를 재구성하고 AI 기반 히트맵과 클릭률 예측으로 비교했습니다.', impact: [{ value: '24%p', label: '시선 집중도 향상', description: 'AI 기반 시뮬레이션', type: 'simulated' }, { value: '12→28%', label: 'CTA 클릭률 예측 개선', description: '실사용 지표가 아닌 예측값', type: 'simulated' }], detailPageEnabled: false, description: 'AI 도구를 활용해 문제 정의, PRD 작성, 화면 설계, 시선 히트맵 기반 검증까지 수행했습니다.' },
   { slug: 'my-ai-service-business', order: 9, tier: 'compact', service: 'MY AI', category: ['AI & Search', 'Service Design', 'Academic'], title: 'AI 활용 관리 서비스 비즈니스 설계', tagline: 'AI 도구 선택과 구독 관리 문제를 B2C에서 B2B 운영 솔루션으로 확장했습니다.', period: 'Academic Project', role: '서비스 비즈니스 설계', contribution: '이해관계자 · BMC · Blueprint · Ecosystem', status: '학업 프로젝트 완료', tools: ['BMC', 'Service Blueprint', 'Ecosystem Map'], tags: ['Service Business', 'AI Recommendation', 'B2B'], problem: '사용자는 상황에 맞는 AI 도구를 고르고 구독과 활용 내역을 관리하기 어려웠습니다.', decision: '이해관계자와 데이터 교환을 기준으로 B2C 추천에서 B2B 운영 구조까지 설계했습니다.', impact: [{ value: '4 Maps', label: '서비스 비즈니스 산출물', description: '이해관계자·BMC·블루프린트·생태계', type: 'delivered' }], detailPageEnabled: false, description: '이해관계자 맵, 비즈니스 모델 캔버스, 서비스 블루프린트, 생태계 맵으로 B2C에서 B2B 운영 솔루션까지 확장되는 구조를 설계했습니다.' },
   { slug: 'picar-ar-sns', order: 10, tier: 'compact', service: 'PICAR', category: ['Product', 'Academic'], title: '위치 기반 AR 길찾기 및 SNS', tagline: '장소 탐색부터 포즈 재현과 공유까지 하나의 촬영 경험으로 연결했습니다.', period: 'Graduation Project', role: '서비스 기획 · 구현', contribution: 'AR UX · 위치 기반 흐름 · SNS 구조', status: '졸업 프로젝트 완료', tools: ['AR', 'Location API', 'Mobile UX'], tags: ['AR', 'Location', 'SNS', 'UX'], problem: '촬영 장소와 포즈를 찾고 결과를 공유하는 과정이 여러 서비스에 나뉘어 있었습니다.', decision: 'AR 길찾기, 투명도 포즈 가이드, 촬영 결과 공유를 하나의 흐름으로 설계했습니다.', impact: [{ value: 'Prototype', label: '위치 기반 AR SNS 구현', description: '졸업 프로젝트', type: 'delivered' }], detailPageEnabled: false, description: '위치 기반 AR 길찾기, 촬영 포즈 투명도 가이드, 촬영 결과 공유 SNS 흐름을 설계하고 구현한 졸업 프로젝트입니다.' },
@@ -191,7 +211,7 @@ const coverImages: Record<string, string> = {
   'picar-ar-sns': 'public/images/projects/PICAR/01-cover.png',
 };
 
-const featuredOrder = ['magic-ecole', 'printbank-npb', 'printbank-main'];
+const featuredOrder = ['printbank-npb', 'magic-ecole', 'print-studio', 'printbank-main'];
 
 featuredProjects.sort((a, b) => {
   const left = featuredOrder.indexOf(a.slug);
@@ -202,7 +222,16 @@ featuredProjects.sort((a, b) => {
   return left - right;
 });
 
-const allProjects = [...featuredProjects, ...compactProjects];
+const projectExposureOrder = ['printbank-npb', 'magic-ecole', 'visang-aidt', 'print-studio', 'printbank-main'];
+
+const allProjects = [...featuredProjects, ...compactProjects].sort((a, b) => {
+  const left = projectExposureOrder.indexOf(a.slug);
+  const right = projectExposureOrder.indexOf(b.slug);
+  if (left === -1 && right === -1) return a.order - b.order;
+  if (left === -1) return 1;
+  if (right === -1) return -1;
+  return left - right;
+});
 
 const affiliations: Record<string, string> = {
   'printbank-npb': '(주)프린트뱅크',

@@ -12,6 +12,7 @@ export function Footer({ email }: { email: string }) {
           서비스 기획자가 되겠습니다.
         </h2>
         <p>서비스 기획자 김부경입니다. 더 나은 사용자 경험을 만드는 기회를 기다리겠습니다.</p>
+        <p className="footer-built">Planned and built by Bugyeong Kim with Codex.</p>
       </div>
       <div className="footer-actions" aria-label="연락처 및 외부 링크">
         <Link className="footer-action footer-action--primary" to="/contact">

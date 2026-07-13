@@ -55,6 +55,11 @@ export type Project = {
   problem: string;
   decision: string;
   impact: Outcome[];
+  cardSummary?: {
+    problem: string;
+    role: string;
+    result: string;
+  };
   detailPageEnabled: boolean;
   description?: string;
 };
@@ -63,6 +68,9 @@ export type ProjectDetail = {
   slug: string;
   overview: string;
   context: string;
+  problemFlow?: string[];
+  decisionCriteria?: string[];
+  executionFlow?: string[];
   executiveSummary: {
     problem: string;
     decision: string;

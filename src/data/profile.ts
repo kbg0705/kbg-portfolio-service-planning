@@ -1,14 +1,14 @@
 export const profile = {
   name: '김부경',
-  role: 'Product Manager',
+  role: 'Service Planner',
   email: 'kbg010705@naver.com',
   github: 'https://github.com/kbg0705',
   summary:
-    '사용자 조사와 운영 데이터에서 문제의 단서를 찾고, 역할·권한, 상태, 콘텐츠 구조, FO·BO 흐름을 실행 가능한 정책과 화면으로 구조화합니다. 개발·디자인·운영 조직과 협업하며 문제 정의부터 출시와 검증까지 연결합니다.',
+    'FO·BO 화면, 운영정책, 권한, 상태값, 예외조건을 요구사항으로 정리하고 개발·디자인·QA·운영 조직이 실행할 수 있는 기준으로 연결합니다.',
   principles: [
     '문제보다 먼저 근거를 확인합니다.',
     '정상 흐름뿐 아니라 역할, 권한, 예외와 책임 범위를 함께 설계합니다.',
-    '화면보다 정책, 상태값, 콘텐츠 구조, 데이터 흐름을 제품의 기반으로 봅니다.',
+    '화면보다 정책, 상태값, 콘텐츠 구조, 데이터 흐름을 서비스의 기반으로 봅니다.',
     '출시 여부와 측정 결과를 구분해 투명하게 전달합니다.',
   ],
   career: [
@@ -54,19 +54,24 @@ export const profile = {
   ],
   capabilities: [
     {
-      title: '문제 정의',
-      description: '인터뷰, VOC, 사용 데이터에서 반복되는 마찰을 찾고 해결할 문제의 범위를 정합니다.',
-      tools: ['User Interview', 'VOC', 'GA4', 'SQL'],
+      title: '서비스 기획',
+      description: 'FO·BO 화면, 운영정책, 상태값, 권한, 예외조건을 요구사항과 화면정의서로 구체화했습니다.',
+      tools: ['FO·BO', 'Policy', 'State', 'Exception'],
     },
     {
-      title: '제품 구조화',
-      description: '권한, 상태, 콘텐츠, 예외, 데이터 흐름을 정책과 요구사항으로 구체화합니다.',
-      tools: ['Figma', 'Jira', 'Confluence', 'IA'],
+      title: '출시 및 품질관리',
+      description: 'WBS와 RP로 일정과 범위를 맞추고 QA 시나리오, 이슈 추적으로 출시 기준을 관리했습니다.',
+      tools: ['WBS', 'RP', 'QA Scenario', 'Issue Tracking'],
     },
     {
-      title: '협업과 검증',
-      description: '개발 착수 기준을 맞추고 QA와 출시 후 지표까지 제품 판단에 연결합니다.',
-      tools: ['Scrum', 'QA', 'Selenium', 'Google Sheets'],
+      title: '협업 커뮤니케이션',
+      description: '디자인·개발·QA·운영 담당자의 요구를 기능 단위와 예외 조건으로 구조화했습니다.',
+      tools: ['Figma', 'Jira', 'Confluence', 'Scrum'],
+    },
+    {
+      title: 'AI 활용',
+      description: 'AI로 UX 문구 기준, 자료 구조화, 반복 확인 업무를 정리하고 검토 시간을 줄였습니다.',
+      tools: ['UX Writing', 'Content Structuring', 'Automation'],
     },
   ],
   education: [
