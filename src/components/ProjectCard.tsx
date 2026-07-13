@@ -3,6 +3,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import type { Project } from '../types/project';
 import { resolveAssetPath } from './common/ImagePlaceholder';
 
+const workCardTitles: Record<string, string> = {
+  'printbank-npb': 'PRINTBANK_CONVERSION',
+  'magic-ecole': 'Magic Ecole LMS',
+  'visang-aidt': '비상교육 AI 디지털교과서',
+};
+
 export function ProjectCard({
   project,
   compact = false,
@@ -17,12 +23,8 @@ export function ProjectCard({
   const navigate = useNavigate();
   const detailPath = `/projects/${project.slug}`;
   const hasThumbnail = Boolean(project.thumbnail?.src);
-  const cardSummary = project.cardSummary ?? {
-    problem: project.problem,
-    role: project.role,
-    result: project.impact[0] ? `${project.impact[0].value} ${project.impact[0].label}` : project.status,
-  };
-  const visibleTags = project.tags.slice(0, 3);
+  const title = displayTitle ?? workCardTitles[project.slug] ?? project.title;
+  const visibleTags = project.tags.slice(0, uniform ? 2 : 3);
   const handleCardClick = (event: MouseEvent<HTMLElement>) => {
     if (!project.detailPageEnabled) return;
     const target = event.target as HTMLElement;
@@ -34,7 +36,7 @@ export function ProjectCard({
     <article className={`project-card ${uniform ? 'project-card--work' : `project-card--${project.tier}`}${compact ? ' is-compact' : ''}${project.detailPageEnabled ? ' project-card--is-clickable' : ''}`} onClick={handleCardClick}>
       <div className="project-card__meta"><span>{String(project.order).padStart(2, '0')}</span><p>{project.service}</p></div>
       {hasThumbnail && project.thumbnail ? (
-        <ProjectThumbnail image={project.thumbnail} to={project.detailPageEnabled ? detailPath : undefined} title={displayTitle ?? project.title} />
+        <ProjectThumbnail image={project.thumbnail} to={project.detailPageEnabled ? detailPath : undefined} title={title} />
       ) : uniform ? (
         <div className="project-card__media-placeholder" aria-hidden="true">
           <span>{String(project.order).padStart(2, '0')}</span>
@@ -43,17 +45,10 @@ export function ProjectCard({
       ) : null}
       <div className="project-card__content">
         <p className="project-card__category">{project.category.join(' / ')}</p>
-        <h3>{displayTitle ?? project.title}</h3>
+        <h3>{title}</h3>
         <p className="project-card__tagline">{project.tagline}</p>
         {uniform ? (
           <div className="tag-list tag-list--supporting">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
-        ) : null}
-        {uniform ? (
-          <dl className="project-card__quickfacts">
-            <div><dt>문제</dt><dd>{cardSummary.problem}</dd></div>
-            <div><dt>한 일</dt><dd>{cardSummary.role}</dd></div>
-            <div><dt>결과</dt><dd>{cardSummary.result}</dd></div>
-          </dl>
         ) : null}
         {compact && !uniform ? <p className="project-card__description">{project.description ?? project.problem}</p> : !compact ? (
           <div className="project-card__logic">

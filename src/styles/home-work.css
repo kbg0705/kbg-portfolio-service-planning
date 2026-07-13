@@ -1,11 +1,11 @@
 .work-grid .project-card__content,
 .home-featured-grid .project-card__content{
-  grid-template-rows:auto auto auto auto 1fr;
+  grid-template-rows:auto auto auto;
 }
 
 .work-grid .tag-list--supporting,
 .home-featured-grid .tag-list--supporting{
   align-self:start;
   min-height:0;
-  margin:8px 0 14px;
+  margin:10px 0 0;
 }

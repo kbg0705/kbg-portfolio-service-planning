@@ -28,12 +28,6 @@ const heroEvidence = [
 
 const homeWorkOrder = ['printbank-npb', 'magic-ecole', 'visang-aidt'];
 
-const projectDisplayTitle = {
-  'printbank-npb': 'PRINTBANK_CONVERSION',
-  'magic-ecole': 'Magic Ecole LMS',
-  'visang-aidt': '비상교육 AI 디지털교과서',
-} as const;
-
 export function PortfolioHomePage() {
   const [activeWorkIndex, setActiveWorkIndex] = useState(0);
   const representativeProjects = homeWorkOrder
@@ -93,7 +87,6 @@ export function PortfolioHomePage() {
                     <ProjectCard
                       compact
                       uniform
-                      displayTitle={projectDisplayTitle[project.slug as keyof typeof projectDisplayTitle]}
                       project={project}
                     />
                   </div>
