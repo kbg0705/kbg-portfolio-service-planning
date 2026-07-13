@@ -168,6 +168,8 @@
 .work-showcase{
   display:grid;
   gap:16px;
+  max-width:860px;
+  margin:0 auto;
 }
 
 .work-showcase__viewport{
@@ -185,6 +187,24 @@
 .work-showcase__slide{
   flex:0 0 100%;
   min-width:100%;
+}
+
+.work-showcase .project-card--work{
+  gap:12px;
+  padding:16px;
+}
+
+.work-showcase .project-thumb__cover{
+  aspect-ratio:16 / 7.4;
+}
+
+.work-showcase .project-card h3{
+  font-size:20px;
+}
+
+.work-showcase .project-card__tagline{
+  font-size:13px;
+  -webkit-line-clamp:1;
 }
 
 .work-showcase .project-card:hover,
