@@ -146,6 +146,7 @@
 
 .work-showcase__viewport{
   overflow:hidden;
+  padding:1px 1px 2px;
   border-radius:8px;
 }
 
