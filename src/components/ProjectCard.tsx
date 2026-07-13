@@ -118,8 +118,9 @@ function ProjectThumbnail({
   const visibleTags = project.tags.slice(0, 2);
   const content = uniform ? (
     <div className={`project-thumb__cover project-thumb__cover--${project.slug}`}>
+      <img className="project-thumb__image" src={resolveAssetPath(image.src!)} alt="" loading="lazy" />
+      <div className="project-thumb__shade" aria-hidden="true" />
       <span className="project-thumb__badge">{thumb.label}</span>
-      <strong className="project-thumb__mark" aria-hidden="true">{project.service.replace(/\s+/g, '')}</strong>
       <div className="project-thumb__copy">
         <h4>{thumb.headline}</h4>
         <p>{thumb.subline}</p>
