@@ -349,6 +349,12 @@
   margin-bottom:34px;
 }
 
+.about-section__heading--compact{
+  grid-template-columns:120px minmax(0,420px);
+  gap:28px;
+  align-items:start;
+}
+
 .about-section__heading h2{
   font-size:34px;
 }
