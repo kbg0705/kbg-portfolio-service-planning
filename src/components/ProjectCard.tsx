@@ -1,10 +1,7 @@
-import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
-import { useMemo, useState } from 'react';
+import { ArrowUpRight } from 'lucide-react';
 import type { MouseEvent } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { projectDetails } from '../data/projectDetails';
 import type { Project } from '../types/project';
-import type { ProjectImage } from '../types/project';
 import { resolveAssetPath } from './common/ImagePlaceholder';
 
 type CapabilityProof = {
@@ -27,8 +24,7 @@ export function ProjectCard({
 }) {
   const navigate = useNavigate();
   const detailPath = `/projects/${project.slug}`;
-  const slides = useProjectSlides(project);
-  const hasThumbnail = slides.length > 0;
+  const hasThumbnail = Boolean(project.thumbnail?.src);
   const cardSummary = project.cardSummary ?? {
     problem: project.problem,
     role: project.role,
@@ -45,8 +41,8 @@ export function ProjectCard({
   return (
     <article className={`project-card ${uniform ? 'project-card--work' : `project-card--${project.tier}`}${compact ? ' is-compact' : ''}${project.detailPageEnabled ? ' project-card--is-clickable' : ''}`} onClick={handleCardClick}>
       <div className="project-card__meta"><span>{String(project.order).padStart(2, '0')}</span><p>{project.service}</p></div>
-      {hasThumbnail ? (
-        <ProjectThumbnailSlider slides={slides} to={project.detailPageEnabled ? detailPath : undefined} title={displayTitle ?? project.title} />
+      {hasThumbnail && project.thumbnail ? (
+        <ProjectThumbnail image={project.thumbnail} to={project.detailPageEnabled ? detailPath : undefined} title={displayTitle ?? project.title} />
       ) : uniform ? (
         <div className="project-card__media-placeholder" aria-hidden="true">
           <span>{String(project.order).padStart(2, '0')}</span>
@@ -93,60 +89,11 @@ export function ProjectCard({
   );
 }
 
-function useProjectSlides(project: Project) {
-  return useMemo(() => {
-    const detail = projectDetails.find((item) => item.slug === project.slug);
-    const candidates = [
-      project.thumbnail,
-      detail?.feedbackBacklog?.image,
-      ...(detail?.decisions.map((item) => item.image) ?? []),
-      ...(detail?.artifacts ?? []),
-      ...(detail?.images ?? []),
-    ];
-    const seen = new Set<string>();
-    return candidates.filter((image): image is ProjectImage => {
-      if (!image?.src || seen.has(image.src)) return false;
-      seen.add(image.src);
-      return true;
-    }).slice(0, 4);
-  }, [project]);
-}
-
-function ProjectThumbnailSlider({ slides, title, to }: { slides: ProjectImage[]; title: string; to?: string }) {
-  const [index, setIndex] = useState(0);
-  const canSlide = slides.length > 1;
-  const next = (direction: -1 | 1) => setIndex((current) => (current + direction + slides.length) % slides.length);
-  const handleMove = (event: MouseEvent<HTMLButtonElement>, direction: -1 | 1) => {
-    event.stopPropagation();
-    next(direction);
-  };
-
-  const imageTrack = (
-    <div className="project-thumb-slider__track" style={{ transform: `translateX(-${index * 100}%)` }}>
-      {slides.map((slide) => (
-        <div className="project-thumb-slider__slide" key={slide.src}>
-          <img src={resolveAssetPath(slide.src!)} alt={slide.alt} loading="lazy" />
-        </div>
-      ))}
-    </div>
-  );
-
+function ProjectThumbnail({ image, title, to }: { image: NonNullable<Project['thumbnail']>; title: string; to?: string }) {
+  const content = <img src={resolveAssetPath(image.src!)} alt={image.alt} loading="lazy" />;
   return (
-    <div className="project-thumb-slider" aria-label={`${title} 썸네일`}>
-      {to ? <Link className="project-thumb-slider__link" to={to} aria-label={`${title} 상세 보기`}>{imageTrack}</Link> : imageTrack}
-      {canSlide ? (
-        <>
-          <button className="project-thumb-slider__button project-thumb-slider__button--prev" type="button" onClick={(event) => handleMove(event, -1)} aria-label="이전 썸네일">
-            <ChevronLeft size={16} aria-hidden="true" />
-          </button>
-          <button className="project-thumb-slider__button project-thumb-slider__button--next" type="button" onClick={(event) => handleMove(event, 1)} aria-label="다음 썸네일">
-            <ChevronRight size={16} aria-hidden="true" />
-          </button>
-          <div className="project-thumb-slider__dots" aria-hidden="true">
-            {slides.map((slide, dotIndex) => <span className={dotIndex === index ? 'is-active' : undefined} key={slide.src} />)}
-          </div>
-        </>
-      ) : null}
+    <div className="project-thumb" aria-label={`${title} 썸네일`}>
+      {to ? <Link className="project-thumb__link" to={to} aria-label={`${title} 상세 보기`}>{content}</Link> : content}
     </div>
   );
 }
