@@ -1,6 +1,7 @@
 import { ArrowUpRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useMemo, useState } from 'react';
-import { Link } from 'react-router-dom';
+import type { MouseEvent } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { projectDetails } from '../data/projectDetails';
 import type { Project } from '../types/project';
 import type { ProjectImage } from '../types/project';
@@ -24,6 +25,7 @@ export function ProjectCard({
   capabilityProof?: CapabilityProof;
   displayTitle?: string;
 }) {
+  const navigate = useNavigate();
   const detailPath = `/projects/${project.slug}`;
   const slides = useProjectSlides(project);
   const hasThumbnail = slides.length > 0;
@@ -33,9 +35,15 @@ export function ProjectCard({
     result: project.impact[0] ? `${project.impact[0].value} ${project.impact[0].label}` : project.status,
   };
   const visibleTags = project.tags.slice(0, 3);
+  const handleCardClick = (event: MouseEvent<HTMLElement>) => {
+    if (!project.detailPageEnabled) return;
+    const target = event.target as HTMLElement;
+    if (target.closest('a,button')) return;
+    navigate(detailPath);
+  };
 
   return (
-    <article className={`project-card ${uniform ? 'project-card--work' : `project-card--${project.tier}`}${compact ? ' is-compact' : ''}`}>
+    <article className={`project-card ${uniform ? 'project-card--work' : `project-card--${project.tier}`}${compact ? ' is-compact' : ''}${project.detailPageEnabled ? ' project-card--is-clickable' : ''}`} onClick={handleCardClick}>
       <div className="project-card__meta"><span>{String(project.order).padStart(2, '0')}</span><p>{project.service}</p></div>
       {hasThumbnail ? (
         <ProjectThumbnailSlider slides={slides} to={project.detailPageEnabled ? detailPath : undefined} title={displayTitle ?? project.title} />
@@ -108,6 +116,10 @@ function ProjectThumbnailSlider({ slides, title, to }: { slides: ProjectImage[];
   const [index, setIndex] = useState(0);
   const canSlide = slides.length > 1;
   const next = (direction: -1 | 1) => setIndex((current) => (current + direction + slides.length) % slides.length);
+  const handleMove = (event: MouseEvent<HTMLButtonElement>, direction: -1 | 1) => {
+    event.stopPropagation();
+    next(direction);
+  };
 
   const imageTrack = (
     <div className="project-thumb-slider__track" style={{ transform: `translateX(-${index * 100}%)` }}>
@@ -124,10 +136,10 @@ function ProjectThumbnailSlider({ slides, title, to }: { slides: ProjectImage[];
       {to ? <Link className="project-thumb-slider__link" to={to} aria-label={`${title} 상세 보기`}>{imageTrack}</Link> : imageTrack}
       {canSlide ? (
         <>
-          <button className="project-thumb-slider__button project-thumb-slider__button--prev" type="button" onClick={() => next(-1)} aria-label="이전 썸네일">
+          <button className="project-thumb-slider__button project-thumb-slider__button--prev" type="button" onClick={(event) => handleMove(event, -1)} aria-label="이전 썸네일">
             <ChevronLeft size={16} aria-hidden="true" />
           </button>
-          <button className="project-thumb-slider__button project-thumb-slider__button--next" type="button" onClick={() => next(1)} aria-label="다음 썸네일">
+          <button className="project-thumb-slider__button project-thumb-slider__button--next" type="button" onClick={(event) => handleMove(event, 1)} aria-label="다음 썸네일">
             <ChevronRight size={16} aria-hidden="true" />
           </button>
           <div className="project-thumb-slider__dots" aria-hidden="true">

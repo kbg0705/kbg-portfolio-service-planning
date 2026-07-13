@@ -128,6 +128,10 @@
   padding:22px;
 }
 
+.project-card--is-clickable{
+  cursor:pointer;
+}
+
 .home-featured-grid,
 .work-grid{
   grid-template-columns:1fr;
@@ -225,7 +229,7 @@
 .project-card--work .project-thumb-slider,
 .project-card--work .project-card__media-placeholder{
   grid-area:media;
-  align-self:start;
+  align-self:center;
   width:100%;
   height:auto;
   min-height:190px;
