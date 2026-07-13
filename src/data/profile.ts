@@ -75,7 +75,8 @@ export const profile = {
     },
   ],
   education: [
-    { period: '2020.03 - 2024.09', name: '가천대학교', detail: '소프트웨어 전공 · 4.29/4.5' },
+    { period: '2020.03 - 2024.08', name: '가천대학교', detail: '소프트웨어 전공 · 졸업 · 4.29/4.5' },
+    { period: '2017.03 - 2020.02', name: '양명여자고등학교', detail: '졸업' },
   ],
   certifications: [
     { period: '2024.09', name: 'SQLD', issuer: '한국데이터산업진흥원' },
