@@ -171,7 +171,7 @@ button.image-placeholder.has-image{
 .work-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
 .work-grid .project-card{align-content:start;padding:22px}
 .work-grid .project-card__content,
-.home-featured-grid .project-card__content{display:grid;grid-template-rows:auto auto auto auto 1fr auto;align-content:start;height:100%}
+.home-featured-grid .project-card__content{display:grid;grid-template-rows:auto auto auto auto 1fr;align-content:start;height:100%}
 .work-grid .project-card h3,
 .home-featured-grid .project-card h3{
   overflow:hidden;
@@ -194,6 +194,7 @@ button.image-placeholder.has-image{
   -webkit-box-orient:vertical;
   -webkit-line-clamp:2;
 }
+.work-grid .project-card__capability,
 .home-featured-grid .project-card__capability{
   display:grid;
   gap:9px;
@@ -202,6 +203,7 @@ button.image-placeholder.has-image{
   padding:14px 0 16px;
   border-block:1px solid var(--p-line);
 }
+.work-grid .project-card__capability strong,
 .home-featured-grid .project-card__capability strong{
   display:block;
   overflow:hidden;
@@ -212,6 +214,7 @@ button.image-placeholder.has-image{
   text-overflow:ellipsis;
   white-space:nowrap;
 }
+.work-grid .tag-list--supporting,
 .home-featured-grid .tag-list--supporting{
   align-self:start;
   min-height:60px;
