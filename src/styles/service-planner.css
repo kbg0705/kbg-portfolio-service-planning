@@ -155,6 +155,12 @@
   min-width:100%;
 }
 
+.work-showcase .project-card:hover{
+  border-color:var(--p-accent);
+  box-shadow:0 12px 28px rgba(23,23,34,.08);
+  transform:none;
+}
+
 .work-showcase__controls{
   display:flex;
   align-items:center;
