@@ -44,10 +44,10 @@ export function ProjectCard({
       <div className="project-card__content">
         <p className="project-card__category">{project.category.join(' / ')}</p>
         <h3>{displayTitle ?? project.title}</h3>
+        <p className="project-card__tagline">{project.tagline}</p>
         {uniform ? (
           <div className="tag-list tag-list--supporting">{visibleTags.map((tag) => <span className="tag" key={tag}>{tag}</span>)}</div>
         ) : null}
-        <p className="project-card__tagline">{project.tagline}</p>
         {uniform ? (
           <dl className="project-card__quickfacts">
             <div><dt>문제</dt><dd>{cardSummary.problem}</dd></div>
