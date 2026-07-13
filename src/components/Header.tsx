@@ -42,8 +42,8 @@ export function Header() {
   return (
     <header ref={headerRef} className={`site-header${isScrolled ? ' is-scrolled' : ''}`}>
       <Link className="brand-lockup" to="/">
-        <strong>KB.</strong>
-        <span>KIM BUGYEONG</span>
+        <strong>서비스 기획</strong>
+        <span>| 김부경</span>
       </Link>
       <nav className="global-nav" aria-label="주요 페이지">
         {navItems.map((item) => (
